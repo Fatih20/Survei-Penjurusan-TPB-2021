@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 import Header from "./components/header";
@@ -16,7 +16,11 @@ const Main = styled.div`
 `;
 
 function App() {
+    const [firstRefreshed, setFirstRefreshed] = useState(false);
 
+    useEffect(()=>{
+        setFirstRefreshed(true);
+    })
     return (
     <>
         <GlobalTransition/>

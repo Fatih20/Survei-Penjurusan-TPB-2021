@@ -14,9 +14,15 @@ const facultyList = [
     "SBM",
 ]
 
+async function retrieveJurusan(path){
+    const data = await import(`./${path}`);
+    const jurusanList = Object.keys(data["1"])
+    return jurusanList;
+}
+
 let facultiesData = {}
 for (const faculty of facultyList){
-    const facultyData = {
+    let facultyData = {
         data : {
             peminat : `JSON/${faculty}-Peminat.json`,
             indeks : `JSON/${faculty}-Indeks-Peminat.json`,
@@ -25,7 +31,13 @@ for (const faculty of facultyList){
     facultiesData[faculty] = facultyData;
 }
 
-export {facultiesData};
+for (const faculty of facultyList){
+    if (faculty === "STEI"){
+        retrieveJurusan(facultiesData[faculty].data.peminat).then((jurusanList) => {
+            facultiesData[faculty].jurusan = jurusanList;
+        })
+    }
+}
 
-// Use list comprehension or something to automate the creation of object. Data should contain paths to corresponding JSON
+export {facultiesData};
 
