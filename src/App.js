@@ -8,24 +8,25 @@ import Footer from "./components/footer";
 import { GlobalTransition } from "./GlobalComponent";
 
 const Main = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-  position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    position: relative;
 `;
 
 function App() {
-  return (
+
+    return (
     <>
-      <GlobalTransition/>
-      <Main>
-          <Header />
-          <Body />
-          <Footer />
-      </Main>
+        <GlobalTransition/>
+        <Main>
+            <Header />
+            <Body />
+            <Footer />
+        </Main>
     </>
-  )
-}
+    )
+    }
 
 export default App;

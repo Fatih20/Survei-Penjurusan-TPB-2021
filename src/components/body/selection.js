@@ -5,7 +5,7 @@ import styled, {css} from "styled-components";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
-import { facultyData } from "../../data/facultyData";
+import { facultiesData } from "../../data/facultyData";
 
 const ButtonActive = css`
     background-color: #7a0000;
@@ -57,7 +57,7 @@ export default function Selection ({facultyShown, setFacultyShown}){
     }
     return(
         <Main>
-            {Object.keys(facultyData).map(optionMaker)}
+            {Object.keys(facultiesData).map(optionMaker)}
         </Main>
     )
 }

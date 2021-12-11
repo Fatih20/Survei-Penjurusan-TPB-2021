@@ -1,4 +1,4 @@
-export const facultyList = [
+const facultyList = [
     "STEI",
     "FTI",
     "FMIPA",
@@ -14,49 +14,18 @@ export const facultyList = [
     "SBM",
 ]
 
-export const facultyData = {
-    "STEI": {
-        data: {
-            peminatPertama : "JSON/STEI-Peminat-Pertama.json"
+let facultiesData = {}
+for (const faculty of facultyList){
+    const facultyData = {
+        data : {
+            peminat : `JSON/${faculty}-Peminat.json`,
+            indeks : `JSON/${faculty}-Indeks-Peminat.json`,
         }
-    },
-    "FTI": {
-        data:""
-    },
-    "FMIPA": {
-        data:""
-    },
-    "FTTM": {
-        data:""
-    },
-    "FITB": {
-        data:""
-    },
-    "FTMD": {
-        data:""
-    },
-    "SITH-S": {
-        data:""
-    },
-    "SITH-R": {
-        data:""
-    },
-    "SF": {
-        data:""
-    },
-    "FTSL": {
-        data:""
-    },
-    "SAPPK": {
-        data:""
-    },
-    "FSRD": {
-        data:""
-    },
-    "SBM": {
-        data:""
-    },
+    }
+    facultiesData[faculty] = facultyData;
 }
+
+export {facultiesData};
 
 // Use list comprehension or something to automate the creation of object. Data should contain paths to corresponding JSON
 

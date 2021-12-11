@@ -45,8 +45,8 @@ def jurusan_dan_indeks(peringkat_minat):
 print(data_minat())
 print(jurusan_dan_indeks(1))
 
-data_minat().set_index("Nama Jurusan").to_json(path_or_buf="./src/data/JSON/STEI-Peminat-Pertama.json", orient="columns")
-jurusan_dan_indeks(1).set_index("Nama Jurusan").to_json(path_or_buf="indeks_peminat_pertama.json", orient="columns")
+data_minat().set_index("Nama Jurusan").to_json(path_or_buf="./src/data/JSON/STEI-Peminat.json", orient="columns")
+jurusan_dan_indeks(1).set_index("Nama Jurusan").to_json(path_or_buf="./src/data/JSON/STEI-Indeks-Peminat.json", orient="columns")
 
 
 

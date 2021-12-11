@@ -4,7 +4,7 @@ import { PieChart, Pie, Tooltip } from "recharts";
 import * as dataProcessor from "../../dataProcessor/dataProcessor.js"
 
 // Import Data
-import { facultyData } from "../../data/facultyData";
+import { facultiesData } from "../../data/facultyData";
 
 const Main = styled.div`
     color: white;
@@ -15,12 +15,12 @@ export default function Content ({facultyShown}){
     const[data, setData] = useState([]);
 
     async function retrieveData (){
-        const dataOfFacultyShown = await import(`../../data/${facultyData[facultyShown].data.peminatPertama}`);
+        const dataOfFacultyShown = await import(`../../data/${facultiesData[facultyShown].data.peminat}`);
         return dataOfFacultyShown
     }
 
     useEffect(() => {
-        if (facultyShown != "None" && facultyShown == "STEI"){
+        if (facultyShown !== "None" && facultyShown === "STEI"){
             retrieveData().then(dataPeminat => {
                 setData(dataProcessor.peminat(dataPeminat, "1"));
             })
