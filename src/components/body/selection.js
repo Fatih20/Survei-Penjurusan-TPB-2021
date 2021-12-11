@@ -36,15 +36,12 @@ const Main = styled.div`
 `;
 
 export default function Selection ({facultyShown, setFacultyShown}){
-    const [anyActive, setAnyActive] = useState(false);
 
     function facultyClicked (faculty){
         if (facultyShown === faculty){
             setFacultyShown("None");
-            setAnyActive(false);
         } else {
             setFacultyShown(faculty);
-            setAnyActive(true);
         }
     }
 
