@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// Import Data
 import { facultyData } from "../../data/facultyData";
 
 const Main = styled.div`

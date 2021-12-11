@@ -1,16 +1,20 @@
 import React from "react";
 import styled, {css} from "styled-components";
 
+// Import Data
 import { footerData } from "../data/footerData";
 
 const Main = styled.div`
     bottom: 0px;
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     padding: 15px 0;
     position: absolute;
     width: 100%;
+
+    & * {
+        box-sizing: border-box;
+    }
 `;
 
 const Content = styled.div`
@@ -25,7 +29,6 @@ const Content = styled.div`
 
 const BoxWrapper = styled.div`
     align-items: center;
-    box-sizing: border-box;
     color: white;
     display: flex;
     flex-direction: column;
@@ -39,7 +42,6 @@ const BoxWrapper = styled.div`
 const TextBox = styled.div`
     background-color: #fafafa;
     border-radius: 7px;
-    box-sizing: border-box;
     color: black;
     display: flex;
     flex-direction: column;

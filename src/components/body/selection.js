@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import styled, {css} from "styled-components";
 
+// Import Component
 import { VanillaButton } from "../../GlobalComponent";
 
+// Import Data
 import { facultyData } from "../../data/facultyData";
 
 const ButtonActive = css`

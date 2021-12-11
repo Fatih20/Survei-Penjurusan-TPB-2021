@@ -40,46 +40,4 @@ export const facultyData = {
     },
 }
 
-// export const facultyData2 = [
-    //     {
-    //         name : "STEI"
-    //     },
-    //     {
-    //         name : "FTI"
-    //     },
-    //     {
-    //         name : "FMIPA"
-    //     },
-    //     {
-    //         name : "FTTM"
-    //     },
-    //     {
-    //         name : "FITB"
-    //     },
-    //     {
-    //         name : "FTMD"
-    //     },
-    //     {
-    //         name : "SITH-S"
-    //     },
-    //     {
-    //         name : "SITH-R"
-    //     },
-    //     {
-    //         name : "SF"
-    //     },
-    //     {
-    //         name : "FTSL"
-    //     },
-    //     {
-    //         name : "SAPPK"
-    //     },
-    //     {
-    //         name : "FSRD"
-    //     },
-    //     {
-    //         name : "SBM"
-    //     },
-    
-    // ]
 
