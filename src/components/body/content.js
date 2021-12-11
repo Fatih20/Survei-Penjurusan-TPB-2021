@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { PieChart, Pie } from "recharts";
+import { PieChart, Pie, Tooltip } from "recharts";
 
 // Import Data
 import { facultyData } from "../../data/facultyData";
@@ -11,12 +11,12 @@ const Main = styled.div`
 `;
 
 export default function Content ({facultyShown}){
+    const[data, setData] = useState([]);
+
     async function retrieveData (){
         const dataOfFacultyShown = await import(`../../data/${facultyData[facultyShown].data.peminatPertama}`);
         return dataOfFacultyShown
     }
-
-    const dataMPSTEI = {"Informatika":13,"Sistem Teknologi Informasi":9,"Teknik Elektro":15,"Teknik Tenaga Listrik":17,"Teknik Telekomunikasi":24,"Teknik Biomedis":22}
 
     function dataMPProcessing(rawData){
         let processedData = [];
@@ -30,20 +30,25 @@ export default function Content ({facultyShown}){
         return processedData;
     }
 
+    useEffect(() => {
+        if (facultyShown != "None"){
+            retrieveData().then(dataPeminat => {
+                setData(dataMPProcessing(dataPeminat["1"]));
+            })
+        }
+    }, [facultyShown])
+
     if (facultyShown === "STEI"){
-        console.log(dataMPProcessing(dataMPSTEI));
+        // console.log(dataMPProcessing(dataMPSTEI));
         return (
-            <PieChart width={730} height={250}>
-                <Pie data={dataMPProcessing(dataMPSTEI)} dataKey="jumlah" nameKey="namaJurusan" outerRadius={50} fill="#8884d8"/>
+            <PieChart width={500} height={500}>
+                <Pie data={data} dataKey="jumlah" nameKey="namaJurusan" outerRadius={200} fill="#8884d8"/>
+                <Tooltip />
             </PieChart>
         )
     } else if (facultyShown != "None"){
         // const dataMP = await retrieveData();
         // console.log(dataMP["1"]);
-
-        if (facultyShown === "STEI"){
-            console.log(dataMPProcessing(dataMPSTEI)) 
-        }
 
         return (
             <Main>
