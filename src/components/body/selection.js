@@ -47,7 +47,7 @@ export default function Selection ({facultyShown, setFacultyShown}){
 
     function optionMaker (faculty){
         return (
-            <OptionButton onClick={() => facultyClicked(faculty)} isActive={facultyShown == faculty ? true : false}> 
+            <OptionButton key={faculty} onClick={() => facultyClicked(faculty)} isActive={facultyShown == faculty ? true : false}> 
                 {faculty}
             </OptionButton>
         )

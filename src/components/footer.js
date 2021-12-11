@@ -80,20 +80,20 @@ export default function Footer (){
     function TextCreator({text, textType, link}){
         if (textType === "plain"){
             return (
-                <PlainText>{text}</PlainText>
+                <PlainText key={text}>{text}</PlainText>
             )
         } else if (textType === "link"){
             return (
-                <LinkText href={link}>{text}</LinkText>
+                <LinkText key={text} href={link}>{text}</LinkText>
             )
         }
     }
 
     function TextBoxCreator ({title, boxContent}){
         return (
-            <BoxWrapper>
+            <BoxWrapper key={title}>
                 <Title>{title}</Title>
-                <TextBox>
+                <TextBox key={title}>
                     {boxContent.map(TextCreator)}
                 </TextBox>
             </BoxWrapper>
