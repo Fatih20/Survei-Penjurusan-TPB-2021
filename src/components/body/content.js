@@ -1,42 +1,75 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { PieChart, Pie, Tooltip } from "recharts";
 import * as dataProcessor from "../../dataProcessor/dataProcessor.js"
 
+// Import Component
+import DataVisualization from "./dataVisualization.js";
+import { VanillaButton } from "../../GlobalComponent";
+
 // Import Data
-import { facultiesData } from "../../data/facultyData";
+const facultiesData = require("../../data/facultyData.json")
 
 const Main = styled.div`
     color: white;
     margin: 20px 0 0 0;
 `;
 
-export default function Content ({facultyShown}){
-    const[data, setData] = useState([]);
+const SelectionContainer = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+`;
 
-    async function retrieveData (){
-        const dataOfFacultyShown = await import(`../../data/${facultiesData[facultyShown].data.peminat}`);
-        return dataOfFacultyShown
+const JurusanContainer = styled.div`
+    display: flex;
+`;
+
+const ButtonActive = css`
+    background-color: #7a0000;
+    color: white;
+`;
+
+const ButtonNotActive = css`
+    &:hover {
+        background-color: white;
     }
+`;
+
+const OptionButton = styled(VanillaButton)`
+    ${({isActive}) => isActive ? ButtonActive : ButtonNotActive}
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(212, 212, 212, 0.4);
+    font-size: 20px;
+    padding: 7px;
+`;
+
+
+
+export default function Content ({facultyShown}){
+    const[jurusanClicked, setJurusanClicked] = useState("None");
 
     useEffect(() => {
-        if (facultyShown !== "None" && facultyShown === "STEI"){
-            retrieveData().then(dataPeminat => {
-                setData(dataProcessor.peminat(dataPeminat, "1"));
-            })
-        }
-    }, [facultyShown])
+        console.log(facultiesData);
+    });
 
-    if (facultyShown === "STEI"){
-        return (
-            <PieChart width={500} height={500}>
-                <Pie data={data} dataKey="jumlah" nameKey="namaJurusan" outerRadius={200} fill="#8884d8"/>
-                <Tooltip />
-            </PieChart>
-        )
-    } else if (facultyShown != "None"){
+    function jurusanClick (buttonClicked) {
+        if(buttonClicked === jurusanClicked) {
+            setJurusanClicked("None");
+        } else {
+            setJurusanClicked(buttonClicked);
+        }
+    }
+
+    if (facultyShown != "None"){
         return (
             <Main>
+                <SelectionContainer>
+                    <OptionButton onClick={() => jurusanClick("Overview")} isActive={jurusanClicked == "Overview" ? true : false}>Overview</OptionButton>
+                    <JurusanContainer>
+                        {/* {facultiesData["STEI"].jurusan.map()} */}
+                    </JurusanContainer>
+                </SelectionContainer>
                 <h2>{`Insert ${facultyShown} data here`}</h2>
             </Main>
         )

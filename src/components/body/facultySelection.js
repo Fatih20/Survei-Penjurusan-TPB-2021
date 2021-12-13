@@ -5,7 +5,7 @@ import styled, {css} from "styled-components";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
-import { facultiesData } from "../../data/facultyData";
+const facultiesData = require("../../data/facultyData.json")
 
 const ButtonActive = css`
     background-color: #7a0000;
@@ -35,7 +35,7 @@ const Main = styled.div`
     padding-bottom: 10px;
 `;
 
-export default function Selection ({facultyShown, setFacultyShown}){
+export default function FacultySelection ({facultyShown, setFacultyShown}){
 
     function facultyClicked (faculty){
         if (facultyShown === faculty){

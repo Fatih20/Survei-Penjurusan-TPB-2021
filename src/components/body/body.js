@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 
 // Import Component
-import Selection from "./selection";
+import FacultySelection from "./facultySelection";
 import Content from "./content";
 
 const Main = styled.div`
@@ -18,7 +18,7 @@ export default function Body (){
 
     return(
         <Main>
-            <Selection setFacultyShown={setFacultyShown} facultyShown={facultyShown}/>
+            <FacultySelection setFacultyShown={setFacultyShown} facultyShown={facultyShown}/>
             <Content facultyShown={facultyShown} />
         </Main>
     )

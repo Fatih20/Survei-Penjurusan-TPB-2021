@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
+// Import Component
 import Header from "./components/header";
 import Body from "./components/body/body";
 import Footer from "./components/footer";
 
+// Import Global Styles
 import { GlobalTransition } from "./GlobalComponent";
 
 const Main = styled.div`
@@ -16,18 +18,13 @@ const Main = styled.div`
 `;
 
 function App() {
-    const [firstRefreshed, setFirstRefreshed] = useState(false);
-
-    useEffect(()=>{
-        setFirstRefreshed(true);
-    })
     return (
     <>
         <GlobalTransition/>
         <Main>
             <Header />
             <Body />
-            <Footer />
+            <Footer /> 
         </Main>
     </>
     )
