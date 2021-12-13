@@ -15,7 +15,6 @@ const Main = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px 0 0 0;
 `;
 
 const JurusanContainer = styled.div`
