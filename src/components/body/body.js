@@ -17,15 +17,12 @@ export default function Body (){
     const [facultyShown, setFacultyShown] = useState("None");
     const[jurusanClicked, setJurusanClicked] = useState("None");
 
-    useEffect(() => {
-        setJurusanClicked("None");
-    }, [facultyShown]);
-
     function facultyClick (faculty){
         if (facultyShown === faculty){
             setFacultyShown("None");
         } else {
             setFacultyShown(faculty);
+            setJurusanClicked("None");
         }
     }
 
