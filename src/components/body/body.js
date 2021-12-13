@@ -15,29 +15,29 @@ const Main = styled.div`
 
 export default function Body (){
     const [facultyShown, setFacultyShown] = useState("None");
-    const[jurusanClicked, setJurusanClicked] = useState("None");
+    const[jurusanShown, setJurusanShown] = useState("None");
 
     function facultyClick (faculty){
         if (facultyShown === faculty){
             setFacultyShown("None");
         } else {
             setFacultyShown(faculty);
-            setJurusanClicked("None");
+            setJurusanShown("None");
         }
     }
 
     function jurusanClick (buttonClicked) {
-        if(buttonClicked === jurusanClicked) {
-            setJurusanClicked("None");
+        if(buttonClicked === jurusanShown) {
+            setJurusanShown("None");
         } else {
-            setJurusanClicked(buttonClicked);
+            setJurusanShown(buttonClicked);
         }
     }
 
     return(
         <Main>
             <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
-            <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick} jurusanClicked={jurusanClicked} />
+            <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick} jurusanShown={jurusanShown} />
         </Main>
     )
 }

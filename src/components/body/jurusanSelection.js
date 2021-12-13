@@ -18,13 +18,6 @@ const Main = styled.div`
     margin: 20px 0 0 0;
 `;
 
-const SelectionContainer = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-`;
-
 const JurusanContainer = styled.div`
     display: flex;
     gap: 10px;
@@ -52,22 +45,20 @@ const OptionButton = styled(VanillaButton)`
 const JurusanButton = styled(OptionButton)`
 `;
 
-export default function JurusanSelection ({facultyShown, onJurusanClick, jurusanClicked}){
+export default function JurusanSelection ({facultyShown, onJurusanClick, jurusanShown}){
     const facultiesData = useFacultiesData();
 
     function jurusanButtonCreator(namaJurusan){
-        return <JurusanButton key={namaJurusan} onClick={() => onJurusanClick(namaJurusan)} isActive={jurusanClicked === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
+        return <JurusanButton key={namaJurusan} onClick={() => onJurusanClick(namaJurusan)} isActive={jurusanShown === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
     }
 
     if (facultyShown !== "None"){
         return (
             <Main>
-                <SelectionContainer>
-                    <OptionButton onClick={() => onJurusanClick("Overview")} isActive={jurusanClicked === "Overview" ? true : false}>Overview</OptionButton>
-                    <JurusanContainer>
-                        {facultiesData["STEI"]["dataJurusan"].map(jurusanButtonCreator)}
-                    </JurusanContainer>
-                </SelectionContainer>
+                <OptionButton onClick={() => onJurusanClick("Overview")} isActive={jurusanShown === "Overview" ? true : false}>Overview</OptionButton>
+                <JurusanContainer>
+                    {facultiesData["STEI"]["dataJurusan"].map(jurusanButtonCreator)}
+                </JurusanContainer>
             </Main>
         )
     } else {
