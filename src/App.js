@@ -13,9 +13,12 @@ import FacultiesDataProvider from "./context/FacultyDataContext";
 const Main = styled.div`
     align-items: center;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    position: relative;
+    flex-direction: column; 
+    min-height: 100vh;
+`;
+
+const Buffer = styled.div`
+    flex-grow: 1;
 `;
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
             <FacultiesDataProvider>
                 <Header />
                 <Body />
+                <Buffer />
                 <Footer />   
             </FacultiesDataProvider>
         </Main>
