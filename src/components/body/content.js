@@ -33,6 +33,7 @@ export default function Content({facultyShown, jurusanShown}){
     const facultiesData = useFacultiesData();
 
     if (facultyShown !== "None"){
+        const dataIndeksPeminat = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 1);
         if (jurusanShown === "Overview"){
             console.log("Bruh");
             console.log(dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 1))
@@ -47,13 +48,20 @@ export default function Content({facultyShown, jurusanShown}){
                     </Chart>
                     <Chart>
                         <ChartTitle>Rerata Nilai Akhir Peminat Pertama Tiap Jurusan</ChartTitle>
-                        <BarChart width={730} height={250} data={dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 1)}>
+                        <BarChart width={730} height={250} data={dataIndeksPeminat}>
                             <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="namaJurusan" />
+                            <XAxis dataKey="name" label={false} />
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="indeksPeminat" fill="#8884d8" />
+                            {Object.keys(dataIndeksPeminat[0]).map((data) => {
+                                if (data !== "name"){
+                                    console.log(data)
+                                    return (
+                                        <Bar dataKey={data} fill="#8884d8"/>
+                                    )
+                                }
+                            })}
                         </BarChart>
                     </Chart>
                 </Main>
