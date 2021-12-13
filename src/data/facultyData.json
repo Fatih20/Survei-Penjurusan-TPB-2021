@@ -1,0 +1,104 @@
+{
+    "STEI": {
+        "dataPeminat": {
+            "1": {
+                "Informatika": 13,
+                "Sistem Teknologi Informasi": 9,
+                "Teknik Elektro": 15,
+                "Teknik Tenaga Listrik": 17,
+                "Teknik Telekomunikasi": 24,
+                "Teknik Biomedis": 22
+            },
+            "2": {
+                "Informatika": 24,
+                "Sistem Teknologi Informasi": 18,
+                "Teknik Elektro": 11,
+                "Teknik Tenaga Listrik": 19,
+                "Teknik Telekomunikasi": 11,
+                "Teknik Biomedis": 17
+            },
+            "3": {
+                "Informatika": 22,
+                "Sistem Teknologi Informasi": 22,
+                "Teknik Elektro": 17,
+                "Teknik Tenaga Listrik": 12,
+                "Teknik Telekomunikasi": 12,
+                "Teknik Biomedis": 15
+            },
+            "4": {
+                "Informatika": 16,
+                "Sistem Teknologi Informasi": 14,
+                "Teknik Elektro": 28,
+                "Teknik Tenaga Listrik": 13,
+                "Teknik Telekomunikasi": 13,
+                "Teknik Biomedis": 16
+            },
+            "5": {
+                "Informatika": 15,
+                "Sistem Teknologi Informasi": 12,
+                "Teknik Elektro": 17,
+                "Teknik Tenaga Listrik": 20,
+                "Teknik Telekomunikasi": 19,
+                "Teknik Biomedis": 17
+            },
+            "6": {
+                "Informatika": 10,
+                "Sistem Teknologi Informasi": 25,
+                "Teknik Elektro": 12,
+                "Teknik Tenaga Listrik": 19,
+                "Teknik Telekomunikasi": 21,
+                "Teknik Biomedis": 13
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Informatika": 2.230769230769231,
+                "Sistem Teknologi Informasi": 2.5,
+                "Teknik Elektro": 1.8,
+                "Teknik Tenaga Listrik": 1.7352941176470589,
+                "Teknik Telekomunikasi": 2.7291666666666665,
+                "Teknik Biomedis": 2.4318181818181817
+            },
+            "2": {
+                "Informatika": 2.625,
+                "Sistem Teknologi Informasi": 2.0277777777777777,
+                "Teknik Elektro": 2.1818181818181817,
+                "Teknik Tenaga Listrik": 1.9736842105263157,
+                "Teknik Telekomunikasi": 2.3636363636363638,
+                "Teknik Biomedis": 2.3529411764705883
+            },
+            "3": {
+                "Informatika": 2.159090909090909,
+                "Sistem Teknologi Informasi": 2.590909090909091,
+                "Teknik Elektro": 2.0294117647058822,
+                "Teknik Tenaga Listrik": 2.6666666666666665,
+                "Teknik Telekomunikasi": 2.5416666666666665,
+                "Teknik Biomedis": 1.7
+            },
+            "4": {
+                "Informatika": 1.75,
+                "Sistem Teknologi Informasi": 1.7142857142857142,
+                "Teknik Elektro": 2.732142857142857,
+                "Teknik Tenaga Listrik": 2.3846153846153846,
+                "Teknik Telekomunikasi": 1.8076923076923077,
+                "Teknik Biomedis": 2.75
+            },
+            "5": {
+                "Informatika": 2.433333333333333,
+                "Sistem Teknologi Informasi": 2.2916666666666665,
+                "Teknik Elektro": 2.4705882352941178,
+                "Teknik Tenaga Listrik": 2.575,
+                "Teknik Telekomunikasi": 2.0,
+                "Teknik Biomedis": 1.8529411764705883
+            }
+        },
+        "dataJurusan": [
+            "Informatika",
+            "Sistem Teknologi Informasi",
+            "Teknik Elektro",
+            "Teknik Tenaga Listrik",
+            "Teknik Telekomunikasi",
+            "Teknik Biomedis"
+        ]
+    }
+}
