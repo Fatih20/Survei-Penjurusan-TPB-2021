@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 // Import Component
 import FacultySelection from "./facultySelection";
-import Content from "./content";
+import JurusanSelection from "./jurusanSelection";
 
 const Main = styled.div`
     display: flex;
@@ -14,12 +14,33 @@ const Main = styled.div`
 `;
 
 export default function Body (){
-    const [facultyShown, setFacultyShown] = useState("None"); 
+    const [facultyShown, setFacultyShown] = useState("None");
+    const[jurusanClicked, setJurusanClicked] = useState("None");
+
+    useEffect(() => {
+        setJurusanClicked("None");
+    }, [facultyShown]);
+
+    function facultyClick (faculty){
+        if (facultyShown === faculty){
+            setFacultyShown("None");
+        } else {
+            setFacultyShown(faculty);
+        }
+    }
+
+    function jurusanClick (buttonClicked) {
+        if(buttonClicked === jurusanClicked) {
+            setJurusanClicked("None");
+        } else {
+            setJurusanClicked(buttonClicked);
+        }
+    }
 
     return(
         <Main>
-            <FacultySelection setFacultyShown={setFacultyShown} facultyShown={facultyShown}/>
-            <Content facultyShown={facultyShown} />
+            <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
+            <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick} jurusanClicked={jurusanClicked} />
         </Main>
     )
 }

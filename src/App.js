@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 
 // Import Global Styles
 import { GlobalTransition } from "./GlobalComponent";
+import FacultiesDataProvider from "./context/FacultyDataContext";
 
 const Main = styled.div`
     align-items: center;
@@ -22,9 +23,11 @@ function App() {
     <>
         <GlobalTransition/>
         <Main>
-            <Header />
-            <Body />
-            <Footer /> 
+            <FacultiesDataProvider>
+                <Header />
+                <Body />
+                <Footer />   
+            </FacultiesDataProvider>
         </Main>
     </>
     )

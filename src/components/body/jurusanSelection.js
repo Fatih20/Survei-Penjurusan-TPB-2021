@@ -7,10 +7,14 @@ import DataVisualization from "./dataVisualization.js";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
-const facultiesData = require("../../data/facultyData.json")
+import { useFacultiesData } from "../../context/FacultyDataContext";
 
 const Main = styled.div`
+    align-items: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin: 20px 0 0 0;
 `;
 
@@ -48,37 +52,22 @@ const OptionButton = styled(VanillaButton)`
 const JurusanButton = styled(OptionButton)`
 `;
 
-
-
-export default function Content ({facultyShown}){
-    const[jurusanClicked, setJurusanClicked] = useState("None");
-
-    useEffect(() => {
-        setJurusanClicked("None");
-    }, [facultyShown])
-
-    function jurusanClick (buttonClicked) {
-        if(buttonClicked === jurusanClicked) {
-            setJurusanClicked("None");
-        } else {
-            setJurusanClicked(buttonClicked);
-        }
-    }
+export default function JurusanSelection ({facultyShown, onJurusanClick, jurusanClicked}){
+    const facultiesData = useFacultiesData();
 
     function jurusanButtonCreator(namaJurusan){
-        return <JurusanButton key={namaJurusan} onClick={() => jurusanClick(namaJurusan)} isActive={jurusanClicked === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
+        return <JurusanButton key={namaJurusan} onClick={() => onJurusanClick(namaJurusan)} isActive={jurusanClicked === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
     }
 
     if (facultyShown !== "None"){
         return (
             <Main>
                 <SelectionContainer>
-                    <OptionButton onClick={() => jurusanClick("Overview")} isActive={jurusanClicked === "Overview" ? true : false}>Overview</OptionButton>
+                    <OptionButton onClick={() => onJurusanClick("Overview")} isActive={jurusanClicked === "Overview" ? true : false}>Overview</OptionButton>
                     <JurusanContainer>
                         {facultiesData["STEI"]["dataJurusan"].map(jurusanButtonCreator)}
                     </JurusanContainer>
                 </SelectionContainer>
-                <h2>{`Insert ${facultyShown} data here`}</h2>
             </Main>
         )
     } else {

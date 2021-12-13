@@ -5,7 +5,7 @@ import styled, {css} from "styled-components";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
-const facultiesData = require("../../data/facultyData.json")
+import { useFacultiesData } from "../../context/FacultyDataContext";
 
 const ButtonActive = css`
     background-color: #7a0000;
@@ -35,19 +35,12 @@ const Main = styled.div`
     padding-bottom: 10px;
 `;
 
-export default function FacultySelection ({facultyShown, setFacultyShown}){
-
-    function facultyClicked (faculty){
-        if (facultyShown === faculty){
-            setFacultyShown("None");
-        } else {
-            setFacultyShown(faculty);
-        }
-    }
+export default function FacultySelection ({facultyShown, onFacultyClick}){
+    const facultiesData = useFacultiesData();
 
     function optionMaker (faculty){
         return (
-            <OptionButton key={faculty} onClick={() => facultyClicked(faculty)} isActive={facultyShown === faculty ? true : false}> 
+            <OptionButton key={faculty} onClick={() => onFacultyClick(faculty)} isActive={facultyShown === faculty ? true : false}> 
                 {faculty}
             </OptionButton>
         )
