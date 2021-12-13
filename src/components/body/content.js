@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled, {css} from "styled-components";
-import { PieChart, Pie, Tooltip } from "recharts";
 import * as dataProcessor from "../../dataProcessor/dataProcessor.js"
 
 // Import Component
@@ -67,14 +66,14 @@ export default function Content ({facultyShown}){
     }
 
     function jurusanButtonCreator(namaJurusan){
-        return <JurusanButton key={namaJurusan} onClick={() => jurusanClick(namaJurusan)} isActive={jurusanClicked == namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
+        return <JurusanButton key={namaJurusan} onClick={() => jurusanClick(namaJurusan)} isActive={jurusanClicked === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
     }
 
-    if (facultyShown != "None"){
+    if (facultyShown !== "None"){
         return (
             <Main>
                 <SelectionContainer>
-                    <OptionButton onClick={() => jurusanClick("Overview")} isActive={jurusanClicked == "Overview" ? true : false}>Overview</OptionButton>
+                    <OptionButton onClick={() => jurusanClick("Overview")} isActive={jurusanClicked === "Overview" ? true : false}>Overview</OptionButton>
                     <JurusanContainer>
                         {facultiesData["STEI"]["dataJurusan"].map(jurusanButtonCreator)}
                     </JurusanContainer>

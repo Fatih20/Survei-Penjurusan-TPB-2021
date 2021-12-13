@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled, {css} from "styled-components";
 
 // Import Component
@@ -47,7 +47,7 @@ export default function FacultySelection ({facultyShown, setFacultyShown}){
 
     function optionMaker (faculty){
         return (
-            <OptionButton key={faculty} onClick={() => facultyClicked(faculty)} isActive={facultyShown == faculty ? true : false}> 
+            <OptionButton key={faculty} onClick={() => facultyClicked(faculty)} isActive={facultyShown === faculty ? true : false}> 
                 {faculty}
             </OptionButton>
         )
