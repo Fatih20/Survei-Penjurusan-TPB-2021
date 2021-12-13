@@ -5,11 +5,9 @@ import styled, {css} from "styled-components";
 import { footerData } from "../data/footerData";
 
 const Main = styled.div`
-    bottom: 0px;
     display: flex;
     justify-content: center;
     padding: 15px 0;
-    position: absolute;
     width: 100%;
 
     & * {
