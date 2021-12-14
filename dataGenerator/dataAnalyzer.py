@@ -83,6 +83,40 @@ def data_jurusan_dan_indeks_total (data):
         result[str(i)] = data_jurusan_dan_indeks(data, i)
     return result
 
+def data_jurusan_dan_nilai(data, peringkat_minat):
+
+    kamus_nilai = {
+        "A" : 4.0,
+        "AB": 3.5,
+        "B" : 3.0,
+        "BC" : 2.5,
+        "C" : 2.0,
+        "D" : 1.0,
+        "E" : 0.0,
+    }
+
+    result = {}
+
+    for name, values in data.loc[:, "Informatika": "Teknik Biomedis"].iteritems():
+        indeks_list = data.loc[data[name] == peringkat_minat]["Nilai Akhir"]
+        rata_rata_indeks = round(indeks_list.sum()/len(indeks_list), 2)
+        result[name] = rata_rata_indeks
+
+    # print(jurusan_dan_indeks_list)
+    return result
+
+def data_jurusan_dan_indeks_total (data):
+    result = {}
+    for i in range(1, 6):
+        result[str(i)] = data_jurusan_dan_indeks(data, i)
+    return result
+
+def data_jurusan_dan_nilai_total (data):
+    result = {}
+    for i in range(1, 6):
+        result[str(i)] = data_jurusan_dan_nilai(data, i)
+    return result
+
 # print(list(data_minat(pd.read_csv("dataGenerator/rawData/STEI.csv"))["Nama Jurusan"]))
 # print(data_minat(pd.read_csv("dataGenerator/rawData/STEI.csv")))
 # print(jurusan_dan_indeks(1))

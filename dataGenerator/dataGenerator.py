@@ -26,11 +26,11 @@ for faculty in faculty_list:
         data = pd.read_csv(f"dataGenerator/rawData/{faculty}.csv")
         
         data_peminat = da.data_minat(data)
-        data_indeks_peminat = da.data_jurusan_dan_indeks_total(data)
+        data_nilai_peminat = da.data_jurusan_dan_nilai_total(data)
         data_jurusan = list(data.loc[:, "Informatika":"Teknik Biomedis"].columns)
 
         # print(data_peminat)
-        # print(data_indeks_peminat)
+        # print(data_nilai_peminat)
         # print(data_jurusan)
 
 
@@ -43,7 +43,7 @@ for faculty in faculty_list:
 
     if success :
         faculties_data_dict[faculty]["dataPeminat"] = data_peminat
-        faculties_data_dict[faculty]["dataIndeksPeminat"] = data_indeks_peminat
+        faculties_data_dict[faculty]["dataIndeksPeminat"] = data_nilai_peminat
         faculties_data_dict[faculty]["dataJurusan"] = data_jurusan
 
 json_faculties_data = json.dumps(faculties_data_dict, indent = 4)
