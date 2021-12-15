@@ -4,6 +4,7 @@ import * as dataProcessor from "../../dataProcessor/dataProcessor.js"
 
 // Import Component
 import DataVisualization from "./dataVisualization.js";
+import BarChartSpecialized from "./charts/barChartSpecialized.js";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
