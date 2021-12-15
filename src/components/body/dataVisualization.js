@@ -21,7 +21,7 @@ const ChartTitle = styled.h2`
 
 export default function DataVisualization ({type, data, title}){
 
-    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"];
+    const colors = ["#EF4444", "#F97316", "#F59E0B", "#EAB308", "#84CC16", "#22C55E", "#10B981", "#14B8A6", "#06B6D4", ""];
 
     function colorPicker (index, arrayOfColor){
         return arrayOfColor[index % arrayOfColor.length]

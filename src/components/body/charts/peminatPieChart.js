@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sector } from "recharts";
 
+// Import DataProcessor
+import { percentMaker } from "../../../dataProcessor/dataProcessor";
+
 export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
     const [activeIndex, setActiveIndex] = useState(null)
+    console.log(percentMaker(data));
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
@@ -33,7 +37,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
         return (
             <g>
                 <text x={x} y={y} fill={color} textAnchor="middle" dominantBaseline="central">
-                    {value}
+                    {index === activeIndex ? null : `${value}%`}
                 </text>
             </g>
         )
@@ -61,7 +65,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                     <path id={`curve ${index}`} d={`M${curveStartX} ${curveStartY}
                             A ${outerRadius} ${outerRadius} 0, 0, ${midAngle > 180 ? "0":"1"}, ${curveEndX}, ${curveEndY}`} />
                 </defs>
-                <text fill={fill} textAnchor="middle" dominantBaseline="central" dy={`${midAngle > 180 ? "+" : '-'}15px`}>
+                <text fill={index === activeIndex? "white" : fill} textAnchor="middle" dominantBaseline="central" dy={`${midAngle > 180 ? "+" : '-'}15px`}>
                     <textPath xlinkHref={`#curve ${index}`} startOffset={"50%"}>
                         {name}
                     </textPath>
@@ -75,8 +79,8 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
     return (
         <PieChart width={750} height={750}>
             <Pie 
-                data={data} 
-                dataKey="besar" 
+                data={percentMaker(data)} 
+                dataKey="persen" 
                 nameKey="nama" 
                 cx="50%" 
                 cy="50%" 
@@ -130,7 +134,6 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                 )
             })}
             </Pie>
-            <Tooltip />
         </PieChart> 
     )
 }
