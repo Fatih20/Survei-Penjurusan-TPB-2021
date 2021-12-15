@@ -2,17 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell, Label, LabelList } from "recharts";
 
-const Main = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-`;
-
-const ChartTitle = styled.h2`
-    text-align: center;
-`;
-
-export default function BarChartSpecialized ({data, title}){
+export default function BarChartSpecialized ({data, arrayOfColors, colorPicker}){
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
     const upperNilai = dataMaximum+(0.5 - (dataMaximum % 0.5))
@@ -48,7 +38,7 @@ export default function BarChartSpecialized ({data, title}){
                 <LabelList dataKey="besar" position="right" fill="white"/>
                 {data.map((entry, index) => {
                     return(
-                        <Cell fill={colors[index]} />
+                        <Cell fill={colorPicker(index, arrayOfColors)} />
                     )
                 })}
             </Bar>

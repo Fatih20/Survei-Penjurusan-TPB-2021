@@ -2,17 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sector } from "recharts";
 
-const Main = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-`;
-
-const ChartTitle = styled.h2`
-    text-align: center;
-`;
-
-export default function PieChartSpecialized ({data, title}){
+export default function PieChartSpecialized ({data, arrayOfColors, colorPicker}){
     const [activeIndex, setActiveIndex] = useState(null)
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
@@ -136,7 +126,7 @@ export default function PieChartSpecialized ({data, title}){
                 {/* <LabelList dataKey="jumlahPeminat" position="inside" fill="black"/> */}
             {data.map((entry, index) => {
                 return (
-                    <Cell key={index} fill={colors[index]}/>
+                    <Cell key={index} fill={colorPicker(index, arrayOfColors)}/>
                 )
             })}
             </Pie>

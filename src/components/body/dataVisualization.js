@@ -21,14 +21,20 @@ const ChartTitle = styled.h2`
 
 export default function DataVisualization ({type, data, title}){
 
+    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"];
+
+    function colorPicker (index, arrayOfColor){
+        return arrayOfColor[index % arrayOfColor.length]
+    }
+
     function typeOfChart () {
         if (type === "bar") {
-            return (<BarChartSpecialized data={data} />)
+            return (<BarChartSpecialized data={data} colorPicker={colorPicker} arrayOfColors={colors}/>)
         } else {
-            return (<PieChartSpecialized data={data} />)
+            return (<PieChartSpecialized data={data} colorPicker={colorPicker} arrayOfColors={colors} />)
         }
     }
-    
+
     return (
         <Main>
             <ChartTitle>{title}</ChartTitle>
