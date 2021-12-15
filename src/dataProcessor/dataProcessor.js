@@ -2,8 +2,8 @@ export function dataPeminatProcessed(data,ranking){
     const rankedData = data[ranking.toString()]
     const result = Object.keys(rankedData).map((jurusan) => {
         return {
-            "namaJurusan" : jurusan,
-            "jumlahPeminat" : rankedData[jurusan],
+            "nama" : jurusan,
+            "besar" : rankedData[jurusan],
         }
     })
 
@@ -12,9 +12,14 @@ export function dataPeminatProcessed(data,ranking){
 
 export function dataIndeksPeminatProcessed(data, ranking) {
     const rankedData = data[ranking.toString()]
-    const result = [{"name" : "Jurusan"}]
+    const result = []
     Object.keys(rankedData).map((jurusan) => {
-            result[0][jurusan] = rankedData[jurusan];
+            result.push(
+                {
+                    "nama": jurusan,
+                    "besar" : rankedData[jurusan]
+                }
+            )
     })
 
     return result;
