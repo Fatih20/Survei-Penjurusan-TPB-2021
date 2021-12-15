@@ -9,8 +9,8 @@ import { useFacultiesData } from "../../context/FacultyDataContext";
 import { dataPeminatProcessed, dataIndeksPeminatProcessed } from "../../dataProcessor/dataProcessor";
 
 import DataVisualization from "./dataVisualization";
-import BarChartSpecialized from "./charts/barChartSpecialized";
-import PieChartSpecialized from "./charts/pieChartSpecialized";
+import BarChartSpecialized from "./charts/nilaiBarChart";
+import PieChartSpecialized from "./charts/peminatPieChart";
 
 const Main = styled.div`
     align-items: center;

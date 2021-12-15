@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sector } from "recharts";
 
-export default function PieChartSpecialized ({data, arrayOfColors, colorPicker}){
+export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
     const [activeIndex, setActiveIndex] = useState(null)
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))

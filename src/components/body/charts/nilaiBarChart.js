@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell, Label, LabelList } from "recharts";
 
-export default function BarChartSpecialized ({data, arrayOfColors, colorPicker}){
+export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
     const upperNilai = dataMaximum+(0.5 - (dataMaximum % 0.5))
@@ -20,10 +20,7 @@ export default function BarChartSpecialized ({data, arrayOfColors, colorPicker})
             width={720} 
             height={500} 
             layout="vertical"
-            margin={{
-                left: 0,
-                bottom : 20,
-            }}
+            margin={{bottom : 20}}
             barCategoryGap="20%"
             >
             <Label value="Nilai Akhir" position={"top"} fill="white"/>

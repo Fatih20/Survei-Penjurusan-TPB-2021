@@ -6,8 +6,8 @@ import { PieChart, Pie, Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, 
 import { useFacultiesData } from "../../context/FacultyDataContext";
 
 // Import Component
-import BarChartSpecialized from "./charts/barChartSpecialized";
-import PieChartSpecialized from "./charts/pieChartSpecialized";
+import NilaiBarChart from "./charts/nilaiBarChart";
+import PeminatPieChart from "./charts/peminatPieChart";
 
 const Main = styled.div`
     align-items: center;
@@ -29,9 +29,9 @@ export default function DataVisualization ({type, data, title}){
 
     function typeOfChart () {
         if (type === "bar") {
-            return (<BarChartSpecialized data={data} colorPicker={colorPicker} arrayOfColors={colors}/>)
+            return (<NilaiBarChart data={data} colorPicker={colorPicker} arrayOfColors={colors}/>)
         } else {
-            return (<PieChartSpecialized data={data} colorPicker={colorPicker} arrayOfColors={colors} />)
+            return (<PeminatPieChart data={data} colorPicker={colorPicker} arrayOfColors={colors} />)
         }
     }
 
