@@ -8,7 +8,7 @@ import { useFacultiesData } from "../../context/FacultyDataContext";
 // Import Component
 import NilaiBarChart from "./charts/nilaiBarChart";
 import PeminatPieChart from "./charts/peminatPieChart";
-import { percentMaker } from "../../dataProcessor/dataProcessor";
+import { percentMaker, totalCounter } from "../../dataProcessor/dataProcessor";
 import { VanillaButton } from "../../GlobalComponent";
 
 const Main = styled.div`
@@ -24,7 +24,6 @@ const ChartTitle = styled.h2`
 const PercentChoiceContainer = styled.div`
     align-items: center;
     display: flex;
-    gap: 10px;
 `;
 
 const Choice = styled(VanillaButton)`
@@ -33,6 +32,39 @@ const Choice = styled(VanillaButton)`
     color: ${({chosen}) => chosen ? 'white' : '#666666'};
     font-size: 16px;
     padding: 5px;
+
+    &:hover {
+        ${({chosen}) => chosen ? null : 'color : rgba(255, 255, 255, 0.5) '}
+    }
+`;
+
+const PieTotalOuterContainer = styled.div`
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+`;
+
+const PieTotalContainer = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    width : 250px;
+
+    & > *:nth-child(2){
+        font-size: 24px;
+    }
+`;
+
+const PieContainer = styled.div`
+    position: relative;
 `;
 
 export default function DataVisualization ({type, data, title}){
@@ -56,7 +88,18 @@ export default function DataVisualization ({type, data, title}){
         } else {
             return (
             <>
-                <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent}/>
+                <PieContainer>
+                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125}/>
+                    {isPercent ? null : 
+                        <PieTotalOuterContainer>
+                            <PieTotalContainer>
+                                <p>dari</p>
+                                <p>{totalCounter(data)}</p>
+                                <p>partisipan</p>
+                            </PieTotalContainer>
+                        </PieTotalOuterContainer>
+                    }
+                </PieContainer>
                 <PercentChoiceContainer>
                     <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
                     <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
