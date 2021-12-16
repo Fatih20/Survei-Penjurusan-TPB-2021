@@ -54,9 +54,8 @@ export default function Content({facultyShown}){
             console.log(dataPeminatJurusan);
             return (
                 <Main>
-                    <p>Bruh</p>
-                    <DataVisualization title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminatJurusan" data={dataPeminatJurusan} />
-                    <DataVisualization title="Rerata Nilai Akhir Peminat Pertama Tiap Jurusan" type="indeksPeminatJurusan" data={dataIndeksPeminatJurusan} />
+                    <DataVisualization title={`Jumlah Peminat ${jurusanShown} Berdasar Peringkat`} type="jumlahPeminatJurusan" data={dataPeminatJurusan} />
+                    <DataVisualization title={`Nilai Akhir Peminat ${jurusanShown} Berdasar Peringkat`} type="indeksPeminatJurusan" data={dataIndeksPeminatJurusan} />
                 </Main>
             )
         }
