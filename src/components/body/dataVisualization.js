@@ -77,7 +77,6 @@ export default function DataVisualization ({type, data, title}){
         if (type === "indeksPeminat"){
             setSortMethod("alfabetikal")
         } else if (type === "indeksPeminatJurusan"){
-            console.log("Bruh")
             setSortMethod("rangking menurun")
         }
     }, [type]);
@@ -140,8 +139,7 @@ export default function DataVisualization ({type, data, title}){
             })
         } else if (sortMethod === "rangking menurun"){
             return data.sort((a, b) => {
-                return parseInt(a["nama"])-parseInt(b["nama"])
-                
+                return parseInt(a["nama"])-parseInt(b["nama"]) 
             })
         }
     }
@@ -157,7 +155,7 @@ export default function DataVisualization ({type, data, title}){
             <ChartChoiceContainer>
                {sortMethodOptions.map((sortMethodOption) => {
                    return (
-                       <Choice chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
+                        <Choice chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
                    )
                 })} 
             </ChartChoiceContainer>
@@ -165,19 +163,15 @@ export default function DataVisualization ({type, data, title}){
     }
 
     function centerChartJumlahPeminat () {
-        if (!isPercent){
-            return (
-                <PieTotalOuterContainer>
-                    <PieTotalContainer>
-                        <p>dari</p>
-                        <p>{totalCounter(data)}</p>
-                        <p>partisipan</p>
-                    </PieTotalContainer>
-                </PieTotalOuterContainer>
-            )
-        } else {
-            return (<></>)
-        }
+        return (
+            <PieTotalOuterContainer>
+                <PieTotalContainer>
+                    <p>dari</p>
+                    <p>{totalCounter(data)}</p>
+                    <p>partisipan</p>
+                </PieTotalContainer>
+            </PieTotalOuterContainer>
+        )
     }
 
     function choiceChartJumlahPeminat(){
@@ -211,11 +205,10 @@ export default function DataVisualization ({type, data, title}){
                 <>
                 <PieContainer>
                     <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={changeColorOnHover()}/>
-                    {centerChartJumlahPeminat()}
+                    {!isPercent ? centerChartJumlahPeminat() : null}
                 </PieContainer>
                 {choiceChartJumlahPeminat()}
                 </>
-
             )
         }
     }
@@ -225,7 +218,5 @@ export default function DataVisualization ({type, data, title}){
             <ChartTitle>{title}</ChartTitle>
             {typeOfChart()}
         </Main>
-
     )
-
 }
