@@ -36,7 +36,6 @@ export function percentMaker (data){
         let percent = 0;
         if (index !== data.length-1){
             percent = Math.round(100*entry["besar"]/total)
-            console.log(percent)
             accountedPercent += percent
         } else {
             percent = 100-accountedPercent
@@ -45,4 +44,12 @@ export function percentMaker (data){
     })
 
     return result;
+}
+
+export function totalCounter (data){
+    let total = 0;
+    data.forEach((entry) => {
+        total = total + entry["besar"]
+    })
+    return total;
 }

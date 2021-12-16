@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sector } from "recharts";
 
 // Import DataProcessor
-import { percentMaker } from "../../../dataProcessor/dataProcessor";
+import { percentMaker, totalCounter } from "../../../dataProcessor/dataProcessor";
 
 export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
     const [activeIndex, setActiveIndex] = useState(null)
-    console.log(percentMaker(data));
+    const total = useRef(totalCounter(data))
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
@@ -47,6 +47,9 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
         // console.log(props);
         const {cx, cy, index, name, fill, value, viewBox: {endAngle, startAngle, innerRadius, outerRadius}} = props;
         const midAngle = (startAngle+endAngle)/2
+        const halfASegment = 360/(2*data.length)
+        const newStartAngle = midAngle-halfASegment
+        const newEndAngle = midAngle+halfASegment
         
         let curveStartX;
         let curveStartY;
@@ -54,9 +57,9 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
         let curveEndY;
 
         if (midAngle > 180){
-            [curveStartX, curveStartY, curveEndX, curveEndY] = [cx + outerRadius*Math.cos(-Math.PI*startAngle/180), cy + outerRadius*Math.sin(-Math.PI*startAngle/180), cx + outerRadius*Math.cos(-Math.PI*endAngle/180), cy + outerRadius*Math.sin(-Math.PI*endAngle/180)]
+            [curveStartX, curveStartY, curveEndX, curveEndY] = [cx + outerRadius*Math.cos(-Math.PI*newStartAngle/180), cy + outerRadius*Math.sin(-Math.PI*newStartAngle/180), cx + outerRadius*Math.cos(-Math.PI*newEndAngle/180), cy + outerRadius*Math.sin(-Math.PI*newEndAngle/180)]
         } else {
-            [curveStartX, curveStartY, curveEndX, curveEndY] = [cx + outerRadius*Math.cos(-Math.PI*endAngle/180), cy + outerRadius*Math.sin(-Math.PI*endAngle/180), cx + outerRadius*Math.cos(-Math.PI*startAngle/180), cy + outerRadius*Math.sin(-Math.PI*startAngle/180)]
+            [curveStartX, curveStartY, curveEndX, curveEndY] = [cx + outerRadius*Math.cos(-Math.PI*newEndAngle/180), cy + outerRadius*Math.sin(-Math.PI*newEndAngle/180), cx + outerRadius*Math.cos(-Math.PI*newStartAngle/180), cy + outerRadius*Math.sin(-Math.PI*newStartAngle/180)]
         }
 
         return (
@@ -75,6 +78,29 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
         )
         
     }
+
+    function pieContent (props){
+        const{viewBox : {cx, cy}} = props;
+        console.log(props);
+        if (activeIndex !== null){
+            return (
+                <g transform={`translate(${cx}, ${cy})`}>
+                    <text fill="white" textAnchor="middle" dominantBaseline="central">
+                        {data[activeIndex]["nama"]}
+                    </text>
+                    <text fill="white" textAnchor="middle" dominantBaseline="central">
+                      {`${data[activeIndex]["besar"]}/${total.current}`}  
+                    </text>
+                </g>
+            )
+        } else {
+            return (
+                <></>
+            )
+        }
+    }
+
+
 
     return (
         <PieChart width={750} height={750}>
@@ -108,7 +134,6 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                     value}) => {
                     const index = data.map((entry) => entry["nama"]).indexOf(payload["nama"]);
                     // console.log(index);
-                    console.log(colors[index]);
                     return (
                         <g>
                             {/* <Cell key={index} fill={colors[index]}/> */}
@@ -128,6 +153,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                 <LabelList dataKey="besar" position="inside" fill="white" content={customizedPieLabel}/>
                 <LabelList dataKey="besar" position="inside" content={customizedPieNameLabel}/>
                 {/* <LabelList dataKey="jumlahPeminat" position="inside" fill="black"/> */}
+                <Label position="inside" content={pieContent}/>
             {data.map((entry, index) => {
                 return (
                     <Cell key={index} fill={colorPicker(index, arrayOfColors)}/>
