@@ -49,7 +49,7 @@ const PieTotalOuterContainer = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 1;
+    z-index: -1;
 `;
 
 const PieTotalContainer = styled.div`
