@@ -9,8 +9,6 @@ import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
 export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hoveredColor, changeColorOnHover}){
     const[activeIndex, setActiveIndex] = useState(null);
 
-    console.log(data);
-
     const jurusanShown = useJurusanShownContext();
     const setJurusanShown = useSetJurusanShownContext();
 

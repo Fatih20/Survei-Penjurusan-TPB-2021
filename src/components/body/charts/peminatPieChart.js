@@ -83,7 +83,6 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
     }
 
     function setHoveredIndex ({nama}){
-        console.log("Bruh")
         data.forEach((entry, index) => {
             if (entry["nama"] === nama){
                 setActiveIndex(index);

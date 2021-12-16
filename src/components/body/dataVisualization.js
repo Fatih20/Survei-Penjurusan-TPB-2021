@@ -71,7 +71,16 @@ const PieContainer = styled.div`
 
 export default function DataVisualization ({type, data, title}){
     const [isPercent, setIsPercent] = useState(true)
-    const [sortMethod, setSortMethod] = useState("alfabetikal")
+    const [sortMethod, setSortMethod] = useState("alfabetikal");
+
+    useEffect(() => {
+        if (type === "indeksPeminat"){
+            setSortMethod("alfabetikal")
+        } else if (type === "indeksPeminatJurusan"){
+            console.log("Bruh")
+            setSortMethod("rangking menurun")
+        }
+    }, [type])
 
     const colors = ["#EF4444", "#F97316", "#F59E0B", "#EAB308", "#84CC16", "#22C55E", "#10B981", "#14B8A6", "#06B6D4", ""];
 
@@ -119,11 +128,12 @@ export default function DataVisualization ({type, data, title}){
             })
         } else if (sortMethod === "rangking menaik"){
             return data.sort((a, b) => {
-                return parseInt(a["nama"])-parseInt(b["nama"])
+                return parseInt(b["nama"])-parseInt(a["nama"])
             })
         } else if (sortMethod === "rangking menurun"){
             return data.sort((a, b) => {
-                return parseInt(b["nama"])-parseInt(a["nama"])
+                return parseInt(a["nama"])-parseInt(b["nama"])
+                
             })
         }
     }
