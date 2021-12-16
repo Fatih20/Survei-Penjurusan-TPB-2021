@@ -2,94 +2,94 @@
     "STEI": {
         "dataPeminat": {
             "1": {
-                "Informatika": 15,
-                "Sistem Teknologi Informasi": 16,
-                "Teknik Elektro": 13,
-                "Teknik Tenaga Listrik": 21,
-                "Teknik Telekomunikasi": 20,
-                "Teknik Biomedis": 15
+                "Informatika": 26,
+                "Sistem Teknologi Informasi": 25,
+                "Teknik Elektro": 21,
+                "Teknik Tenaga Listrik": 28,
+                "Teknik Telekomunikasi": 18,
+                "Teknik Biomedis": 23
             },
             "2": {
-                "Informatika": 16,
-                "Sistem Teknologi Informasi": 19,
-                "Teknik Elektro": 18,
-                "Teknik Tenaga Listrik": 17,
-                "Teknik Telekomunikasi": 11,
-                "Teknik Biomedis": 19
+                "Informatika": 20,
+                "Sistem Teknologi Informasi": 24,
+                "Teknik Elektro": 26,
+                "Teknik Tenaga Listrik": 21,
+                "Teknik Telekomunikasi": 25,
+                "Teknik Biomedis": 25
             },
             "3": {
-                "Informatika": 19,
-                "Sistem Teknologi Informasi": 20,
-                "Teknik Elektro": 15,
-                "Teknik Tenaga Listrik": 17,
-                "Teknik Telekomunikasi": 14,
-                "Teknik Biomedis": 15
+                "Informatika": 25,
+                "Sistem Teknologi Informasi": 23,
+                "Teknik Elektro": 26,
+                "Teknik Tenaga Listrik": 26,
+                "Teknik Telekomunikasi": 25,
+                "Teknik Biomedis": 16
             },
             "4": {
-                "Informatika": 13,
-                "Sistem Teknologi Informasi": 18,
-                "Teknik Elektro": 13,
-                "Teknik Tenaga Listrik": 20,
-                "Teknik Telekomunikasi": 16,
-                "Teknik Biomedis": 20
+                "Informatika": 24,
+                "Sistem Teknologi Informasi": 27,
+                "Teknik Elektro": 20,
+                "Teknik Tenaga Listrik": 22,
+                "Teknik Telekomunikasi": 24,
+                "Teknik Biomedis": 24
             },
             "5": {
-                "Informatika": 16,
-                "Sistem Teknologi Informasi": 17,
-                "Teknik Elektro": 16,
-                "Teknik Tenaga Listrik": 15,
-                "Teknik Telekomunikasi": 18,
-                "Teknik Biomedis": 18
+                "Informatika": 25,
+                "Sistem Teknologi Informasi": 21,
+                "Teknik Elektro": 22,
+                "Teknik Tenaga Listrik": 18,
+                "Teknik Telekomunikasi": 30,
+                "Teknik Biomedis": 25
             },
             "6": {
                 "Informatika": 21,
-                "Sistem Teknologi Informasi": 10,
-                "Teknik Elektro": 25,
-                "Teknik Tenaga Listrik": 10,
-                "Teknik Telekomunikasi": 21,
-                "Teknik Biomedis": 13
+                "Sistem Teknologi Informasi": 21,
+                "Teknik Elektro": 26,
+                "Teknik Tenaga Listrik": 26,
+                "Teknik Telekomunikasi": 19,
+                "Teknik Biomedis": 28
             }
         },
         "dataIndeksPeminat": {
             "1": {
-                "Informatika": 2.89,
-                "Sistem Teknologi Informasi": 3.19,
-                "Teknik Elektro": 2.86,
-                "Teknik Tenaga Listrik": 3.0,
-                "Teknik Telekomunikasi": 2.79,
-                "Teknik Biomedis": 2.95
+                "Informatika": 2.96,
+                "Sistem Teknologi Informasi": 2.91,
+                "Teknik Elektro": 2.87,
+                "Teknik Tenaga Listrik": 2.93,
+                "Teknik Telekomunikasi": 3.08,
+                "Teknik Biomedis": 3.15
             },
             "2": {
-                "Informatika": 3.06,
-                "Sistem Teknologi Informasi": 2.98,
-                "Teknik Elektro": 2.89,
-                "Teknik Tenaga Listrik": 2.94,
-                "Teknik Telekomunikasi": 3.06,
-                "Teknik Biomedis": 2.8
+                "Informatika": 3.11,
+                "Sistem Teknologi Informasi": 2.76,
+                "Teknik Elektro": 2.85,
+                "Teknik Tenaga Listrik": 3.16,
+                "Teknik Telekomunikasi": 3.07,
+                "Teknik Biomedis": 2.97
             },
             "3": {
-                "Informatika": 3.0,
-                "Sistem Teknologi Informasi": 3.03,
-                "Teknik Elektro": 2.89,
-                "Teknik Tenaga Listrik": 2.81,
-                "Teknik Telekomunikasi": 2.93,
-                "Teknik Biomedis": 3.0
+                "Informatika": 2.95,
+                "Sistem Teknologi Informasi": 3.0,
+                "Teknik Elektro": 3.02,
+                "Teknik Tenaga Listrik": 2.98,
+                "Teknik Telekomunikasi": 2.91,
+                "Teknik Biomedis": 3.02
             },
             "4": {
-                "Informatika": 2.85,
-                "Sistem Teknologi Informasi": 2.77,
-                "Teknik Elektro": 3.22,
-                "Teknik Tenaga Listrik": 2.95,
-                "Teknik Telekomunikasi": 2.93,
-                "Teknik Biomedis": 2.99
+                "Informatika": 2.73,
+                "Sistem Teknologi Informasi": 2.88,
+                "Teknik Elektro": 3.19,
+                "Teknik Tenaga Listrik": 3.1,
+                "Teknik Telekomunikasi": 3.07,
+                "Teknik Biomedis": 2.95
             },
             "5": {
-                "Informatika": 2.77,
-                "Sistem Teknologi Informasi": 2.78,
-                "Teknik Elektro": 3.08,
-                "Teknik Tenaga Listrik": 2.97,
-                "Teknik Telekomunikasi": 2.99,
-                "Teknik Biomedis": 3.07
+                "Informatika": 3.15,
+                "Sistem Teknologi Informasi": 3.28,
+                "Teknik Elektro": 2.74,
+                "Teknik Tenaga Listrik": 2.87,
+                "Teknik Telekomunikasi": 2.89,
+                "Teknik Biomedis": 2.96
             }
         },
         "dataJurusan": [
