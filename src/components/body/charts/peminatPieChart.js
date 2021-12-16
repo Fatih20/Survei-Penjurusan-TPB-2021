@@ -5,12 +5,16 @@ import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sect
 // Import DataProcessor
 import { percentMaker, totalCounter } from "../../../dataProcessor/dataProcessor";
 
+// Import Context
+import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
+
 const Main = styled.div`
     position: relative;
 `;
 
 export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius}){
-    const total = useRef(totalCounter(data))
+    const total = useRef(totalCounter(data));
+    const setJurusanShown = useSetJurusanShownContext();
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
@@ -70,6 +74,10 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
         
     }
 
+    function handleClick({nama}){
+        setJurusanShown(nama);
+    }
+
     return (
         <PieChart width={700} height={700}>
         <Pie 
@@ -84,6 +92,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
             isAnimationActive={false} 
             stroke="#1a1a1a"
             strokeWidth={2}
+            onClick={handleClick}
             >
                 <LabelList dataKey={isPercent ? 'persen': 'besar'} position="inside" fill="white" content={customizedPieLabel}/>
                 <LabelList dataKey="nama" position="inside" content={customizedPieNameLabel}/>

@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell, Label, LabelList } from "recharts";
 
+
+// Import Context
+import { useSetJurusanShownContext } from "../body";
+
 export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
+    const setJurusanShown = useSetJurusanShownContext();
+
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
     const upperNilai = dataMaximum+(0.5 - (dataMaximum % 0.5))
@@ -12,7 +18,11 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
         return (1+(upperNilai-lowerNilai)/0.25)
     }
 
-    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"]
+    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"];
+
+    function handleClick({nama}){
+        setJurusanShown(nama);
+    }
 
     return (
         <BarChart 
@@ -29,7 +39,7 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
                 <Label value="Nilai Akhir" position={"bottom"} fill="white"/>
             </XAxis>
             <YAxis strokeOpacity={1} type="category" dataKey="nama" tick={false} stroke="white" label={false}/>
-            <Bar dataKey="besar" fill="#fafafa">
+            <Bar dataKey="besar" fill="#fafafa" onClick={handleClick}>
                 <LabelList dataKey="nama" position="insideLeft" fill="white"/>
                 <LabelList dataKey="besar" position="right" fill="white"/>
                 {data.map((entry, index) => {

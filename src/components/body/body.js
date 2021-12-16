@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import styled from "styled-components";
 
 // Import Component
@@ -14,6 +14,17 @@ const Main = styled.div`
     margin: 30px 10px 0 10px;
     max-width: 1080px;
 `;
+
+const JurusanShownContext = React.createContext();
+const SetJurusanShownContext = React.createContext();
+
+export function useJurusanShownContext (){
+    return useContext(JurusanShownContext);
+}
+
+export function useSetJurusanShownContext (){
+    return useContext(SetJurusanShownContext);
+}
 
 export default function Body (){
     const [facultyShown, setFacultyShown] = useState("None");
@@ -38,9 +49,13 @@ export default function Body (){
 
     return(
         <Main>
-            <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
-            <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick} jurusanShown={jurusanShown} />
-            <Content facultyShown={facultyShown} jurusanShown={jurusanShown}/>
+            <JurusanShownContext.Provider value={jurusanShown}>
+                <SetJurusanShownContext.Provider value={setJurusanShown}>
+                    <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
+                    <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick}/>
+                    <Content facultyShown={facultyShown} jurusanShown={jurusanShown}/>
+                </SetJurusanShownContext.Provider>
+            </JurusanShownContext.Provider>
         </Main>
     )
 }

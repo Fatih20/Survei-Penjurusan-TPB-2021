@@ -9,6 +9,7 @@ import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data
 import { useFacultiesData } from "../../context/FacultyDataContext";
+import { useJurusanShownContext } from "./body.js";
 
 const Main = styled.div`
     align-items: center;
@@ -45,8 +46,9 @@ const OptionButton = styled(VanillaButton)`
 const JurusanButton = styled(OptionButton)`
 `;
 
-export default function JurusanSelection ({facultyShown, onJurusanClick, jurusanShown}){
+export default function JurusanSelection ({facultyShown, onJurusanClick}){
     const facultiesData = useFacultiesData();
+    const jurusanShown = useJurusanShownContext();
 
     function jurusanButtonCreator(namaJurusan){
         return <JurusanButton key={namaJurusan} onClick={() => onJurusanClick(namaJurusan)} isActive={jurusanShown === namaJurusan ? true : false}>{namaJurusan}</JurusanButton>
