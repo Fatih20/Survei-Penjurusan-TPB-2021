@@ -69,6 +69,7 @@ export function dataPeminatJurusanProcessed (data, jurusan){
 }
 
 export function dataIndeksPeminatJurusanProcessed (data, jurusan){
+    console.log(data)
     let result = [];
     Object.keys(data).forEach((entry)=>{
         result.push(

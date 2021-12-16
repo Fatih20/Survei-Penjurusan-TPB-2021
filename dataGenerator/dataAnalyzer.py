@@ -79,7 +79,7 @@ def data_jurusan_dan_indeks(data, peringkat_minat):
 
 def data_jurusan_dan_indeks_total (data):
     result = {}
-    for i in range(1, 6):
+    for i in range(1, 7):
         result[str(i)] = data_jurusan_dan_indeks(data, i)
     return result
 
@@ -107,13 +107,13 @@ def data_jurusan_dan_nilai(data, peringkat_minat):
 
 def data_jurusan_dan_indeks_total (data):
     result = {}
-    for i in range(1, 6):
+    for i in range(1, 7):
         result[str(i)] = data_jurusan_dan_indeks(data, i)
     return result
 
 def data_jurusan_dan_nilai_total (data):
     result = {}
-    for i in range(1, 6):
+    for i in range(1, 7):
         result[str(i)] = data_jurusan_dan_nilai(data, i)
     return result
 

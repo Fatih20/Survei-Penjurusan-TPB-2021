@@ -90,6 +90,14 @@
                 "Teknik Tenaga Listrik": 2.91,
                 "Teknik Telekomunikasi": 3.04,
                 "Teknik Biomedis": 3.08
+            },
+            "6": {
+                "Informatika": 3.07,
+                "Sistem Teknologi Informasi": 3.04,
+                "Teknik Elektro": 2.97,
+                "Teknik Tenaga Listrik": 3.08,
+                "Teknik Telekomunikasi": 3.08,
+                "Teknik Biomedis": 2.93
             }
         },
         "dataJurusan": [
