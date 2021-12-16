@@ -6,7 +6,10 @@ import { PieChart, Pie, Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, 
 // Import Data
 import { useFacultiesData } from "../../context/FacultyDataContext";
 
-import { dataPeminatProcessed, dataIndeksPeminatProcessed } from "../../dataProcessor/dataProcessor";
+import { dataPeminatProcessed, dataIndeksPeminatProcessed, dataPeminatJurusanProcessed, dataIndeksPeminatJurusanProcessed } from "../../dataProcessor/dataProcessor";
+
+// Import Context
+import { useJurusanShownContext } from "./body";
 
 import DataVisualization from "./dataVisualization";
 import BarChartSpecialized from "./charts/nilaiBarChart";
@@ -30,15 +33,14 @@ const Main = styled.div`
 const Chart = styled.div`
 `;
 
-export default function Content({facultyShown, jurusanShown}){
+export default function Content({facultyShown}){
     const facultiesData = useFacultiesData();
+    const jurusanShown = useJurusanShownContext();
 
-    if (facultyShown !== "None"){
-        const dataIndeksPeminat = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 1);
-        const dataPeminat = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 1)
+    if (facultyShown !== "None" && jurusanShown !== "None"){
         if (jurusanShown === "Overview"){
-            // console.log("Bruh");
-            // console.log(dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 1))
+            const dataIndeksPeminat = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 1);
+            const dataPeminat = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 1);
             return (
                 <Main>
                     <DataVisualization title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminat" data={dataPeminat} />
@@ -46,12 +48,21 @@ export default function Content({facultyShown, jurusanShown}){
                 </Main>
             )
         } else {
+            const dataIndeksPeminatJurusan = dataIndeksPeminatJurusanProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], jurusanShown);
+            const dataPeminatJurusan = dataPeminatJurusanProcessed(facultiesData[facultyShown]["dataPeminat"], jurusanShown);
+            console.log(dataIndeksPeminatJurusan);
+            console.log(dataPeminatJurusan);
             return (
-                <>
-                </>
+                <Main>
+                    <p>Bruh</p>
+                    <DataVisualization title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminatJurusan" data={dataPeminatJurusan} />
+                    <DataVisualization title="Rerata Nilai Akhir Peminat Pertama Tiap Jurusan" type="indeksPeminatJurusan" data={dataIndeksPeminatJurusan} />
+                </Main>
             )
         }
     } else {
+        console.log("Not showing anything");
+        console.log(jurusanShown);
         return (
             <>
             </>

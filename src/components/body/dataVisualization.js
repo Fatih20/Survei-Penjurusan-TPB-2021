@@ -117,11 +117,11 @@ export default function DataVisualization ({type, data, title}){
                     return 0;
                 }
             })
-        } else if (sortMethod === "ranking menaik"){
+        } else if (sortMethod === "rangking menaik"){
             return data.sort((a, b) => {
                 return parseInt(a["nama"])-parseInt(b["nama"])
             })
-        } else if (sortMethod === "ranking menurun"){
+        } else if (sortMethod === "rangking menurun"){
             return data.sort((a, b) => {
                 return parseInt(b["nama"])-parseInt(a["nama"])
             })
@@ -137,19 +137,19 @@ export default function DataVisualization ({type, data, title}){
     function typeOfChart () {
         if (type === "indeksPeminat") {
             return (
-                <Main>
+                <>
                     <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
                     <ChartChoiceContainer>
                         <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
                         <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
                         <Choice chosen={sortMethod === "alfabetikal" ? true : false} onClick={()=> setSortMethod("alfabetikal")}>Alfabetikal</Choice>
                     </ChartChoiceContainer>
-                </Main>
+                </>
                 
             )
         } else if (type === "jumlahPeminat") {
             return (
-            <Main>
+                <>
                 <PieContainer>
                     <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
                     {isPercent ? null : 
@@ -166,8 +166,45 @@ export default function DataVisualization ({type, data, title}){
                     <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
                     <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
                 </ChartChoiceContainer>
-            </Main>
+                </>
 
+            )
+        } else if (type === "jumlahPeminatJurusan") {
+            // setSortMethod("ranking menurun");
+            return (
+                <>
+                <PieContainer>
+                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={false}/>
+                    {isPercent ? null : 
+                        <PieTotalOuterContainer>
+                            <PieTotalContainer>
+                                <p>dari</p>
+                                <p>{totalCounter(data)}</p>
+                                <p>partisipan</p>
+                            </PieTotalContainer>
+                        </PieTotalOuterContainer>
+                    }
+                </PieContainer>
+                <ChartChoiceContainer>
+                    <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
+                    <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
+                </ChartChoiceContainer>
+                </>
+
+            )
+        } else if (type === "indeksPeminatJurusan") {
+            // setSortMethod("ranking menurun");
+            return (
+                <>
+                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={false}/>
+                    <ChartChoiceContainer>
+                        <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
+                        <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
+                        <Choice chosen={sortMethod === "rangking menaik" ? true : false} onClick={()=> setSortMethod("rangking menaik")}>Rangking Menaik</Choice>
+                        <Choice chosen={sortMethod === "rangking menurun" ? true : false} onClick={()=> setSortMethod("rangking menurun")}>Rangking Menurun</Choice>
+                    </ChartChoiceContainer>
+                </>
+                
             )
         }
     }

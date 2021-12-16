@@ -53,3 +53,30 @@ export function totalCounter (data){
     })
     return total;
 }
+
+export function dataPeminatJurusanProcessed (data, jurusan){
+    let result = [];
+    Object.keys(data).forEach((entry) =>{
+        result.push(
+            {
+                "nama" : entry,
+                "besar" : data[entry][jurusan],
+            }
+        )
+    })
+
+    return result;
+}
+
+export function dataIndeksPeminatJurusanProcessed (data, jurusan){
+    let result = [];
+    Object.keys(data).forEach((entry)=>{
+        result.push(
+            {
+                "nama" : entry,
+                "besar" : data[entry][jurusan]
+            }
+        )
+    })
+    return result;
+}

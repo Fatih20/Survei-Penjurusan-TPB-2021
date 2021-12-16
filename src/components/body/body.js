@@ -53,7 +53,7 @@ export default function Body (){
                 <SetJurusanShownContext.Provider value={setJurusanShown}>
                     <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
                     <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick}/>
-                    <Content facultyShown={facultyShown} jurusanShown={jurusanShown}/>
+                    <Content facultyShown={facultyShown}/>
                 </SetJurusanShownContext.Provider>
             </JurusanShownContext.Provider>
         </Main>
