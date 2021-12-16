@@ -5,8 +5,8 @@ import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sect
 // Import DataProcessor
 import { percentMaker, totalCounter } from "../../../dataProcessor/dataProcessor";
 
-export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
-    const [activeIndex, setActiveIndex] = useState(null)
+export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent}){
+    const [activeIndex, setActiveIndex] = useState(null);
     const total = useRef(totalCounter(data))
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
@@ -37,7 +37,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
         return (
             <g>
                 <text x={x} y={y} fill={color} textAnchor="middle" dominantBaseline="central">
-                    {index === activeIndex ? null : `${value}%`}
+                    {isPercent ? `${value}%` : value}
                 </text>
             </g>
         )
@@ -70,7 +70,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                 </defs>
                 <text fill={index === activeIndex? "white" : fill} textAnchor="middle" dominantBaseline="central" dy={`${midAngle > 180 ? "+" : '-'}15px`}>
                     <textPath xlinkHref={`#curve ${index}`} startOffset={"50%"}>
-                        {name}
+                        {value}
                     </textPath>
                 </text>
 
@@ -105,8 +105,8 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
     return (
         <PieChart width={750} height={750}>
             <Pie 
-                data={percentMaker(data)} 
-                dataKey="persen" 
+                data={data} 
+                dataKey='persen'
                 nameKey="nama" 
                 cx="50%" 
                 cy="50%" 
@@ -150,9 +150,8 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker}){
                     )
                 }}
                 >
-                <LabelList dataKey="besar" position="inside" fill="white" content={customizedPieLabel}/>
-                <LabelList dataKey="besar" position="inside" content={customizedPieNameLabel}/>
-                {/* <LabelList dataKey="jumlahPeminat" position="inside" fill="black"/> */}
+                <LabelList dataKey={isPercent ? 'persen': 'besar'} position="inside" fill="white" content={customizedPieLabel}/>
+                <LabelList dataKey="nama" position="inside" content={customizedPieNameLabel}/>
                 <Label position="inside" content={pieContent}/>
             {data.map((entry, index) => {
                 return (

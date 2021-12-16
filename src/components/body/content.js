@@ -17,6 +17,7 @@ const Main = styled.div`
     display: flex;
     color: white;
     flex-direction: column;
+    gap: 10px;
     padding: 20px 0 0 0;
     width: 100%;
 
