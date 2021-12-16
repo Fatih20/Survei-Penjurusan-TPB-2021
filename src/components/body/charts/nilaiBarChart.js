@@ -4,9 +4,10 @@ import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell,
 
 
 // Import Context
-import { useSetJurusanShownContext } from "../body";
+import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
 
 export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
+    const jurusanShown = useJurusanShownContext();
     const setJurusanShown = useSetJurusanShownContext();
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
@@ -21,7 +22,10 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
     const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"];
 
     function handleClick({nama}){
-        setJurusanShown(nama);
+        if (jurusanShown === "Overview"){
+            setJurusanShown(nama);
+        }
+        
     }
 
     return (

@@ -14,6 +14,7 @@ const Main = styled.div`
 
 export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius}){
     const total = useRef(totalCounter(data));
+    const jurusanShown = useJurusanShownContext();
     const setJurusanShown = useSetJurusanShownContext();
 
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
@@ -75,7 +76,10 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
     }
 
     function handleClick({nama}){
-        setJurusanShown(nama);
+        if (jurusanShown === "Overview"){
+            setJurusanShown(nama);
+        }
+        
     }
 
     return (
