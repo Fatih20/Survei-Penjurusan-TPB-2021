@@ -12,7 +12,7 @@ const Main = styled.div`
     position: relative;
 `;
 
-export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius, hoveredColor}){
+export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius, hoveredColor, changeColorOnHover}){
     const[activeIndex, setActiveIndex] = useState(null);
     const total = useRef(totalCounter(data));
     const jurusanShown = useJurusanShownContext();
@@ -112,9 +112,12 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
                 <LabelList dataKey={isPercent ? 'persen': 'besar'} position="inside" fill="white" content={customizedPieLabel}/>
                 <LabelList dataKey="nama" position="inside" content={customizedPieNameLabel}/>
                 {data.map((entry, index) => {
-                    const color = colorPicker(index, arrayOfColors)
-                    return (
-                        <Cell key={index} fill={index === activeIndex ? hoveredColor(color) :color}/>
+                    let color = colorPicker(index, arrayOfColors)
+                    if (changeColorOnHover){
+                        color = (index === activeIndex) ? hoveredColor(color) : color;
+                    }
+                    return(
+                        <Cell fill={color} />
                     )
                 })}
             </Pie>

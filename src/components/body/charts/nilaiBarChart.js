@@ -6,7 +6,7 @@ import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell,
 // Import Context
 import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
 
-export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hoveredColor}){
+export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hoveredColor, changeColorOnHover}){
     const[activeIndex, setActiveIndex] = useState(null);
 
     const jurusanShown = useJurusanShownContext();
@@ -56,9 +56,12 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hovere
                 <LabelList dataKey="nama" position="insideLeft" fill="white"/>
                 <LabelList dataKey="besar" position="right" fill="white"/>
                 {data.map((entry, index) => {
-                    const color = colorPicker(index, arrayOfColors)
+                    let color = colorPicker(index, arrayOfColors)
+                    if (changeColorOnHover){
+                        color = (index === activeIndex) ? hoveredColor(color) : color;
+                    }
                     return(
-                        <Cell fill={index === activeIndex ? hoveredColor(color) :color} />
+                        <Cell fill={color} />
                     )
                 })}
             </Bar>

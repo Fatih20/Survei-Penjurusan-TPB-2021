@@ -138,7 +138,7 @@ export default function DataVisualization ({type, data, title}){
         if (type === "indeksPeminat") {
             return (
                 <Main>
-                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)}/>
+                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
                     <ChartChoiceContainer>
                         <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
                         <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
@@ -151,7 +151,7 @@ export default function DataVisualization ({type, data, title}){
             return (
             <Main>
                 <PieContainer>
-                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)}/>
+                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
                     {isPercent ? null : 
                         <PieTotalOuterContainer>
                             <PieTotalContainer>
