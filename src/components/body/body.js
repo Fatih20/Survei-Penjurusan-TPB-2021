@@ -28,14 +28,14 @@ export function useSetJurusanShownContext (){
 
 export default function Body (){
     const [facultyShown, setFacultyShown] = useState("None");
-    const[jurusanShown, setJurusanShown] = useState("None");
+    const[jurusanShown, setJurusanShown] = useState("Overview");
 
     function facultyClick (faculty){
         if (facultyShown === faculty){
             setFacultyShown("None");
         } else {
             setFacultyShown(faculty);
-            setJurusanShown("None");
+            setJurusanShown("Overview");
         }
     }
 
