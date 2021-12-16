@@ -12,7 +12,8 @@ const Main = styled.div`
     position: relative;
 `;
 
-export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius}){
+export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius, hoveredColor}){
+    const[activeIndex, setActiveIndex] = useState(null);
     const total = useRef(totalCounter(data));
     const jurusanShown = useJurusanShownContext();
     const setJurusanShown = useSetJurusanShownContext();
@@ -78,8 +79,16 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
     function handleClick({nama}){
         if (jurusanShown === "Overview"){
             setJurusanShown(nama);
-        }
-        
+        }    
+    }
+
+    function setHoveredIndex ({nama}){
+        console.log("Bruh")
+        data.forEach((entry, index) => {
+            if (entry["nama"] === nama){
+                setActiveIndex(index);
+            }
+        })
     }
 
     return (
@@ -97,12 +106,15 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
             stroke="#1a1a1a"
             strokeWidth={2}
             onClick={handleClick}
+            onMouseEnter={setHoveredIndex} 
+            onMouseLeave={() => setActiveIndex(null)}
             >
                 <LabelList dataKey={isPercent ? 'persen': 'besar'} position="inside" fill="white" content={customizedPieLabel}/>
                 <LabelList dataKey="nama" position="inside" content={customizedPieNameLabel}/>
                 {data.map((entry, index) => {
+                    const color = colorPicker(index, arrayOfColors)
                     return (
-                        <Cell key={index} fill={colorPicker(index, arrayOfColors)}/>
+                        <Cell key={index} fill={index === activeIndex ? hoveredColor(color) :color}/>
                     )
                 })}
             </Pie>

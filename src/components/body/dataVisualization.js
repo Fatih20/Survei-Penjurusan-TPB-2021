@@ -79,6 +79,27 @@ export default function DataVisualization ({type, data, title}){
         return arrayOfColor[index % arrayOfColor.length]
     }
 
+    function shadeColor(color, percent) {
+
+        var R = parseInt(color.substring(1,3),16);
+        var G = parseInt(color.substring(3,5),16);
+        var B = parseInt(color.substring(5,7),16);
+    
+        R = parseInt(R * (100 + percent) / 100);
+        G = parseInt(G * (100 + percent) / 100);
+        B = parseInt(B * (100 + percent) / 100);
+    
+        R = (R<255)?R:255;  
+        G = (G<255)?G:255;  
+        B = (B<255)?B:255;  
+    
+        var RR = ((R.toString(16).length==1)?"0"+R.toString(16):R.toString(16));
+        var GG = ((G.toString(16).length==1)?"0"+G.toString(16):G.toString(16));
+        var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
+    
+        return "#"+RR+GG+BB;
+    }
+
     function sortedData (){
         if (sortMethod === "menaik"){
             return data.sort((a, b) => a["besar"] - b["besar"])
@@ -117,7 +138,7 @@ export default function DataVisualization ({type, data, title}){
         if (type === "indeksPeminat") {
             return (
                 <Main>
-                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors}/>
+                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)}/>
                     <ChartChoiceContainer>
                         <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
                         <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
@@ -130,7 +151,7 @@ export default function DataVisualization ({type, data, title}){
             return (
             <Main>
                 <PieContainer>
-                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125}/>
+                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)}/>
                     {isPercent ? null : 
                         <PieTotalOuterContainer>
                             <PieTotalContainer>

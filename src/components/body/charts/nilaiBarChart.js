@@ -6,7 +6,9 @@ import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell,
 // Import Context
 import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
 
-export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
+export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hoveredColor}){
+    const[activeIndex, setActiveIndex] = useState(null);
+
     const jurusanShown = useJurusanShownContext();
     const setJurusanShown = useSetJurusanShownContext();
 
@@ -24,8 +26,15 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
     function handleClick({nama}){
         if (jurusanShown === "Overview"){
             setJurusanShown(nama);
-        }
-        
+        } 
+    }
+
+    function setHoveredIndex ({nama}){
+        data.forEach((entry, index) => {
+            if (entry["nama"] === nama){
+                setActiveIndex(index);
+            }
+        })
     }
 
     return (
@@ -43,12 +52,13 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
                 <Label value="Nilai Akhir" position={"bottom"} fill="white"/>
             </XAxis>
             <YAxis strokeOpacity={1} type="category" dataKey="nama" tick={false} stroke="white" label={false}/>
-            <Bar dataKey="besar" fill="#fafafa" onClick={handleClick}>
+            <Bar dataKey="besar" fill="#fafafa" onClick={handleClick} onMouseEnter={setHoveredIndex} onMouseLeave={() => setActiveIndex(null)}>
                 <LabelList dataKey="nama" position="insideLeft" fill="white"/>
                 <LabelList dataKey="besar" position="right" fill="white"/>
                 {data.map((entry, index) => {
+                    const color = colorPicker(index, arrayOfColors)
                     return(
-                        <Cell fill={colorPicker(index, arrayOfColors)} />
+                        <Cell fill={index === activeIndex ? hoveredColor(color) :color} />
                     )
                 })}
             </Bar>
