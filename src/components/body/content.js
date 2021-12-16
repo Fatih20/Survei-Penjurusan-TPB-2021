@@ -34,8 +34,8 @@ export default function Content({facultyShown}){
         if (jurusanShown === "Overview"){
             const dataIndeksPeminatPertama = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 1);
             const dataPeminatPertama = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 1);
-            const dataIndeksPeminatTerakhir = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], 6);
-            const dataPeminatTerakhir = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], 6);
+            const dataIndeksPeminatTerakhir = dataIndeksPeminatProcessed(facultiesData[facultyShown]["dataIndeksPeminat"], facultiesData[facultyShown]["dataJurusan"].length);
+            const dataPeminatTerakhir = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], facultiesData[facultyShown]["dataJurusan"].length);
             return (
                 <Main>
                     <DataVisualization title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminat" data={dataPeminatPertama} />

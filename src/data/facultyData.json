@@ -2,102 +2,102 @@
     "STEI": {
         "dataPeminat": {
             "1": {
-                "Informatika": 71,
-                "Sistem Teknologi Informasi": 105,
-                "Teknik Elektro": 107,
-                "Teknik Tenaga Listrik": 88,
-                "Teknik Telekomunikasi": 83,
-                "Teknik Biomedis": 96
-            },
-            "2": {
-                "Informatika": 92,
-                "Sistem Teknologi Informasi": 95,
-                "Teknik Elektro": 109,
-                "Teknik Tenaga Listrik": 87,
-                "Teknik Telekomunikasi": 88,
-                "Teknik Biomedis": 79
-            },
-            "3": {
-                "Informatika": 103,
-                "Sistem Teknologi Informasi": 89,
-                "Teknik Elektro": 80,
-                "Teknik Tenaga Listrik": 97,
-                "Teknik Telekomunikasi": 87,
-                "Teknik Biomedis": 94
-            },
-            "4": {
-                "Informatika": 98,
-                "Sistem Teknologi Informasi": 89,
+                "Informatika": 93,
+                "Sistem Teknologi Informasi": 85,
                 "Teknik Elektro": 99,
                 "Teknik Tenaga Listrik": 94,
-                "Teknik Telekomunikasi": 78,
-                "Teknik Biomedis": 92
+                "Teknik Telekomunikasi": 91,
+                "Teknik Biomedis": 88
+            },
+            "2": {
+                "Informatika": 86,
+                "Sistem Teknologi Informasi": 88,
+                "Teknik Elektro": 83,
+                "Teknik Tenaga Listrik": 96,
+                "Teknik Telekomunikasi": 97,
+                "Teknik Biomedis": 100
+            },
+            "3": {
+                "Informatika": 99,
+                "Sistem Teknologi Informasi": 85,
+                "Teknik Elektro": 104,
+                "Teknik Tenaga Listrik": 84,
+                "Teknik Telekomunikasi": 94,
+                "Teknik Biomedis": 84
+            },
+            "4": {
+                "Informatika": 88,
+                "Sistem Teknologi Informasi": 92,
+                "Teknik Elektro": 98,
+                "Teknik Tenaga Listrik": 90,
+                "Teknik Telekomunikasi": 84,
+                "Teknik Biomedis": 98
             },
             "5": {
-                "Informatika": 77,
-                "Sistem Teknologi Informasi": 84,
-                "Teknik Elektro": 82,
+                "Informatika": 93,
+                "Sistem Teknologi Informasi": 88,
+                "Teknik Elektro": 93,
                 "Teknik Tenaga Listrik": 95,
-                "Teknik Telekomunikasi": 110,
-                "Teknik Biomedis": 102
+                "Teknik Telekomunikasi": 93,
+                "Teknik Biomedis": 88
             },
             "6": {
-                "Informatika": 109,
-                "Sistem Teknologi Informasi": 88,
+                "Informatika": 91,
+                "Sistem Teknologi Informasi": 112,
                 "Teknik Elektro": 73,
-                "Teknik Tenaga Listrik": 89,
-                "Teknik Telekomunikasi": 104,
-                "Teknik Biomedis": 87
+                "Teknik Tenaga Listrik": 91,
+                "Teknik Telekomunikasi": 91,
+                "Teknik Biomedis": 92
             }
         },
         "dataIndeksPeminat": {
             "1": {
-                "Informatika": 3.03,
-                "Sistem Teknologi Informasi": 3.05,
-                "Teknik Elektro": 3.02,
-                "Teknik Tenaga Listrik": 3.09,
-                "Teknik Telekomunikasi": 2.97,
-                "Teknik Biomedis": 3.02
+                "Informatika": 2.94,
+                "Sistem Teknologi Informasi": 3.04,
+                "Teknik Elektro": 2.92,
+                "Teknik Tenaga Listrik": 2.9,
+                "Teknik Telekomunikasi": 3.02,
+                "Teknik Biomedis": 3.01
             },
             "2": {
-                "Informatika": 2.99,
-                "Sistem Teknologi Informasi": 2.99,
-                "Teknik Elektro": 3.11,
-                "Teknik Tenaga Listrik": 3.03,
+                "Informatika": 3.02,
+                "Sistem Teknologi Informasi": 2.88,
+                "Teknik Elektro": 2.94,
+                "Teknik Tenaga Listrik": 2.94,
                 "Teknik Telekomunikasi": 3.05,
-                "Teknik Biomedis": 3.02
+                "Teknik Biomedis": 2.97
             },
             "3": {
-                "Informatika": 3.01,
-                "Sistem Teknologi Informasi": 3.06,
-                "Teknik Elektro": 3.02,
-                "Teknik Tenaga Listrik": 3.04,
-                "Teknik Telekomunikasi": 2.97,
-                "Teknik Biomedis": 3.08
+                "Informatika": 2.95,
+                "Sistem Teknologi Informasi": 2.99,
+                "Teknik Elektro": 2.97,
+                "Teknik Tenaga Listrik": 2.98,
+                "Teknik Telekomunikasi": 2.9,
+                "Teknik Biomedis": 3.03
             },
             "4": {
-                "Informatika": 3.01,
-                "Sistem Teknologi Informasi": 3.03,
-                "Teknik Elektro": 3.0,
-                "Teknik Tenaga Listrik": 3.05,
-                "Teknik Telekomunikasi": 3.07,
-                "Teknik Biomedis": 3.05
+                "Informatika": 2.97,
+                "Sistem Teknologi Informasi": 3.0,
+                "Teknik Elektro": 3.08,
+                "Teknik Tenaga Listrik": 2.94,
+                "Teknik Telekomunikasi": 2.93,
+                "Teknik Biomedis": 2.89
             },
             "5": {
-                "Informatika": 3.09,
-                "Sistem Teknologi Informasi": 3.02,
-                "Teknik Elektro": 3.06,
-                "Teknik Tenaga Listrik": 2.91,
-                "Teknik Telekomunikasi": 3.04,
-                "Teknik Biomedis": 3.08
+                "Informatika": 2.98,
+                "Sistem Teknologi Informasi": 2.98,
+                "Teknik Elektro": 2.94,
+                "Teknik Tenaga Listrik": 2.98,
+                "Teknik Telekomunikasi": 2.95,
+                "Teknik Biomedis": 2.98
             },
             "6": {
-                "Informatika": 3.07,
-                "Sistem Teknologi Informasi": 3.04,
-                "Teknik Elektro": 2.97,
-                "Teknik Tenaga Listrik": 3.08,
-                "Teknik Telekomunikasi": 3.08,
-                "Teknik Biomedis": 2.93
+                "Informatika": 2.95,
+                "Sistem Teknologi Informasi": 2.94,
+                "Teknik Elektro": 2.98,
+                "Teknik Tenaga Listrik": 3.07,
+                "Teknik Telekomunikasi": 2.96,
+                "Teknik Biomedis": 2.94
             }
         },
         "dataJurusan": [
@@ -109,16 +109,688 @@
             "Teknik Biomedis"
         ]
     },
-    "FTI": {},
-    "FMIPA": {},
-    "FTTM": {},
-    "FITB": {},
-    "FTMD": {},
-    "SITH-S": {},
-    "SITH-R": {},
-    "SF": {},
-    "FTSL": {},
-    "SAPPK": {},
-    "FSRD": {},
-    "SBM": {}
+    "FTI": {
+        "dataPeminat": {
+            "1": {
+                "Teknik Kimia": 108,
+                "Teknik Fisika": 81,
+                "Manajemen Rekayasa": 81,
+                "Teknik Bioenergi dan Kemurgi": 94,
+                "Teknik Pangan": 101,
+                "Teknik Industri": 85
+            },
+            "2": {
+                "Teknik Kimia": 97,
+                "Teknik Fisika": 98,
+                "Manajemen Rekayasa": 106,
+                "Teknik Bioenergi dan Kemurgi": 81,
+                "Teknik Pangan": 74,
+                "Teknik Industri": 94
+            },
+            "3": {
+                "Teknik Kimia": 88,
+                "Teknik Fisika": 92,
+                "Manajemen Rekayasa": 99,
+                "Teknik Bioenergi dan Kemurgi": 90,
+                "Teknik Pangan": 97,
+                "Teknik Industri": 84
+            },
+            "4": {
+                "Teknik Kimia": 94,
+                "Teknik Fisika": 98,
+                "Manajemen Rekayasa": 84,
+                "Teknik Bioenergi dan Kemurgi": 95,
+                "Teknik Pangan": 97,
+                "Teknik Industri": 82
+            },
+            "5": {
+                "Teknik Kimia": 86,
+                "Teknik Fisika": 86,
+                "Manajemen Rekayasa": 93,
+                "Teknik Bioenergi dan Kemurgi": 88,
+                "Teknik Pangan": 95,
+                "Teknik Industri": 102
+            },
+            "6": {
+                "Teknik Kimia": 77,
+                "Teknik Fisika": 95,
+                "Manajemen Rekayasa": 87,
+                "Teknik Bioenergi dan Kemurgi": 102,
+                "Teknik Pangan": 86,
+                "Teknik Industri": 103
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Teknik Kimia": 2.99,
+                "Teknik Fisika": 3.09,
+                "Manajemen Rekayasa": 2.97,
+                "Teknik Bioenergi dan Kemurgi": 3.03,
+                "Teknik Pangan": 3.04,
+                "Teknik Industri": 3.03
+            },
+            "2": {
+                "Teknik Kimia": 3.02,
+                "Teknik Fisika": 3.04,
+                "Manajemen Rekayasa": 3.07,
+                "Teknik Bioenergi dan Kemurgi": 2.95,
+                "Teknik Pangan": 2.89,
+                "Teknik Industri": 3.13
+            },
+            "3": {
+                "Teknik Kimia": 2.99,
+                "Teknik Fisika": 3.08,
+                "Manajemen Rekayasa": 2.98,
+                "Teknik Bioenergi dan Kemurgi": 2.94,
+                "Teknik Pangan": 3.09,
+                "Teknik Industri": 3.06
+            },
+            "4": {
+                "Teknik Kimia": 3.05,
+                "Teknik Fisika": 2.99,
+                "Manajemen Rekayasa": 3.02,
+                "Teknik Bioenergi dan Kemurgi": 2.93,
+                "Teknik Pangan": 3.08,
+                "Teknik Industri": 3.07
+            },
+            "5": {
+                "Teknik Kimia": 3.08,
+                "Teknik Fisika": 2.95,
+                "Manajemen Rekayasa": 3.06,
+                "Teknik Bioenergi dan Kemurgi": 3.12,
+                "Teknik Pangan": 2.95,
+                "Teknik Industri": 2.99
+            },
+            "6": {
+                "Teknik Kimia": 3.03,
+                "Teknik Fisika": 2.99,
+                "Manajemen Rekayasa": 3.04,
+                "Teknik Bioenergi dan Kemurgi": 3.15,
+                "Teknik Pangan": 3.06,
+                "Teknik Industri": 2.88
+            }
+        },
+        "dataJurusan": [
+            "Teknik Kimia",
+            "Teknik Fisika",
+            "Manajemen Rekayasa",
+            "Teknik Bioenergi dan Kemurgi",
+            "Teknik Pangan",
+            "Teknik Industri"
+        ]
+    },
+    "FMIPA": {
+        "dataPeminat": {
+            "1": {
+                "Aktuaria": 134,
+                "Astronomi": 103,
+                "Fisika": 95,
+                "Kimia": 124,
+                "Matematika": 94
+            },
+            "2": {
+                "Aktuaria": 111,
+                "Astronomi": 102,
+                "Fisika": 100,
+                "Kimia": 109,
+                "Matematika": 128
+            },
+            "3": {
+                "Aktuaria": 96,
+                "Astronomi": 108,
+                "Fisika": 114,
+                "Kimia": 105,
+                "Matematika": 127
+            },
+            "4": {
+                "Aktuaria": 92,
+                "Astronomi": 118,
+                "Fisika": 125,
+                "Kimia": 100,
+                "Matematika": 115
+            },
+            "5": {
+                "Aktuaria": 117,
+                "Astronomi": 119,
+                "Fisika": 116,
+                "Kimia": 112,
+                "Matematika": 86
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Aktuaria": 2.92,
+                "Astronomi": 2.95,
+                "Fisika": 3.04,
+                "Kimia": 2.94,
+                "Matematika": 3.0
+            },
+            "2": {
+                "Aktuaria": 2.97,
+                "Astronomi": 2.95,
+                "Fisika": 2.92,
+                "Kimia": 3.0,
+                "Matematika": 2.97
+            },
+            "3": {
+                "Aktuaria": 2.98,
+                "Astronomi": 2.92,
+                "Fisika": 2.97,
+                "Kimia": 2.99,
+                "Matematika": 2.96
+            },
+            "4": {
+                "Aktuaria": 3.01,
+                "Astronomi": 3.0,
+                "Fisika": 2.97,
+                "Kimia": 2.93,
+                "Matematika": 2.91
+            },
+            "5": {
+                "Aktuaria": 2.96,
+                "Astronomi": 2.99,
+                "Fisika": 2.93,
+                "Kimia": 2.96,
+                "Matematika": 2.99
+            }
+        },
+        "dataJurusan": [
+            "Aktuaria",
+            "Astronomi",
+            "Fisika",
+            "Kimia",
+            "Matematika"
+        ]
+    },
+    "FTTM": {
+        "dataPeminat": {
+            "1": {
+                "Teknik Pertambangan": 146,
+                "Teknik Perminyakan": 127,
+                "Teknik Geofisika": 155,
+                "Teknik Metalurgi": 122
+            },
+            "2": {
+                "Teknik Pertambangan": 145,
+                "Teknik Perminyakan": 137,
+                "Teknik Geofisika": 137,
+                "Teknik Metalurgi": 131
+            },
+            "3": {
+                "Teknik Pertambangan": 138,
+                "Teknik Perminyakan": 146,
+                "Teknik Geofisika": 124,
+                "Teknik Metalurgi": 142
+            },
+            "4": {
+                "Teknik Pertambangan": 121,
+                "Teknik Perminyakan": 140,
+                "Teknik Geofisika": 134,
+                "Teknik Metalurgi": 155
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Teknik Pertambangan": 2.99,
+                "Teknik Perminyakan": 3.01,
+                "Teknik Geofisika": 2.92,
+                "Teknik Metalurgi": 2.95
+            },
+            "2": {
+                "Teknik Pertambangan": 2.97,
+                "Teknik Perminyakan": 2.92,
+                "Teknik Geofisika": 2.95,
+                "Teknik Metalurgi": 3.02
+            },
+            "3": {
+                "Teknik Pertambangan": 2.93,
+                "Teknik Perminyakan": 2.95,
+                "Teknik Geofisika": 3.01,
+                "Teknik Metalurgi": 2.98
+            },
+            "4": {
+                "Teknik Pertambangan": 2.97,
+                "Teknik Perminyakan": 2.99,
+                "Teknik Geofisika": 2.99,
+                "Teknik Metalurgi": 2.92
+            }
+        },
+        "dataJurusan": [
+            "Teknik Pertambangan",
+            "Teknik Perminyakan",
+            "Teknik Geofisika",
+            "Teknik Metalurgi"
+        ]
+    },
+    "FITB": {
+        "dataPeminat": {
+            "1": {
+                "Teknik Geodesi & Geomatika": 135,
+                "Oseanografi": 152,
+                "Meteorologi": 131,
+                "Teknik Geologi": 132
+            },
+            "2": {
+                "Teknik Geodesi & Geomatika": 144,
+                "Oseanografi": 131,
+                "Meteorologi": 119,
+                "Teknik Geologi": 156
+            },
+            "3": {
+                "Teknik Geodesi & Geomatika": 130,
+                "Oseanografi": 133,
+                "Meteorologi": 145,
+                "Teknik Geologi": 142
+            },
+            "4": {
+                "Teknik Geodesi & Geomatika": 141,
+                "Oseanografi": 134,
+                "Meteorologi": 155,
+                "Teknik Geologi": 120
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Teknik Geodesi & Geomatika": 2.97,
+                "Oseanografi": 2.99,
+                "Meteorologi": 3.03,
+                "Teknik Geologi": 3.04
+            },
+            "2": {
+                "Teknik Geodesi & Geomatika": 3.09,
+                "Oseanografi": 2.99,
+                "Meteorologi": 2.94,
+                "Teknik Geologi": 3.01
+            },
+            "3": {
+                "Teknik Geodesi & Geomatika": 2.98,
+                "Oseanografi": 3.0,
+                "Meteorologi": 3.07,
+                "Teknik Geologi": 2.99
+            },
+            "4": {
+                "Teknik Geodesi & Geomatika": 2.99,
+                "Oseanografi": 3.06,
+                "Meteorologi": 2.99,
+                "Teknik Geologi": 3.0
+            }
+        },
+        "dataJurusan": [
+            "Teknik Geodesi & Geomatika",
+            "Oseanografi",
+            "Meteorologi",
+            "Teknik Geologi"
+        ]
+    },
+    "FTMD": {
+        "dataPeminat": {
+            "1": {
+                "Teknik Mesin": 185,
+                "Teknik Dirgantara": 192,
+                "Teknik Material": 173
+            },
+            "2": {
+                "Teknik Mesin": 179,
+                "Teknik Dirgantara": 173,
+                "Teknik Material": 198
+            },
+            "3": {
+                "Teknik Mesin": 186,
+                "Teknik Dirgantara": 185,
+                "Teknik Material": 179
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Teknik Mesin": 3.04,
+                "Teknik Dirgantara": 3.07,
+                "Teknik Material": 3.09
+            },
+            "2": {
+                "Teknik Mesin": 3.11,
+                "Teknik Dirgantara": 3.05,
+                "Teknik Material": 3.03
+            },
+            "3": {
+                "Teknik Mesin": 3.04,
+                "Teknik Dirgantara": 3.07,
+                "Teknik Material": 3.08
+            }
+        },
+        "dataJurusan": [
+            "Teknik Mesin",
+            "Teknik Dirgantara",
+            "Teknik Material"
+        ]
+    },
+    "SITH-S": {
+        "dataPeminat": {
+            "1": {
+                "Biologi": 268,
+                "Mikrobiologi": 282
+            },
+            "2": {
+                "Biologi": 282,
+                "Mikrobiologi": 268
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Biologi": 3.01,
+                "Mikrobiologi": 3.03
+            },
+            "2": {
+                "Biologi": 3.03,
+                "Mikrobiologi": 3.01
+            }
+        },
+        "dataJurusan": [
+            "Biologi",
+            "Mikrobiologi"
+        ]
+    },
+    "SITH-R": {
+        "dataPeminat": {
+            "1": {
+                "Rekayasa Hayati": 131,
+                "Rekayasa Pertanian": 129,
+                "Rekayasa Kehutanan": 149,
+                "Teknologi Pascapanen": 141
+            },
+            "2": {
+                "Rekayasa Hayati": 147,
+                "Rekayasa Pertanian": 151,
+                "Rekayasa Kehutanan": 122,
+                "Teknologi Pascapanen": 130
+            },
+            "3": {
+                "Rekayasa Hayati": 136,
+                "Rekayasa Pertanian": 131,
+                "Rekayasa Kehutanan": 153,
+                "Teknologi Pascapanen": 130
+            },
+            "4": {
+                "Rekayasa Hayati": 136,
+                "Rekayasa Pertanian": 139,
+                "Rekayasa Kehutanan": 126,
+                "Teknologi Pascapanen": 149
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Rekayasa Hayati": 3.09,
+                "Rekayasa Pertanian": 3.05,
+                "Rekayasa Kehutanan": 3.02,
+                "Teknologi Pascapanen": 3.06
+            },
+            "2": {
+                "Rekayasa Hayati": 3.1,
+                "Rekayasa Pertanian": 2.98,
+                "Rekayasa Kehutanan": 3.07,
+                "Teknologi Pascapanen": 3.06
+            },
+            "3": {
+                "Rekayasa Hayati": 3.09,
+                "Rekayasa Pertanian": 3.04,
+                "Rekayasa Kehutanan": 3.08,
+                "Teknologi Pascapanen": 3.0
+            },
+            "4": {
+                "Rekayasa Hayati": 2.93,
+                "Rekayasa Pertanian": 3.14,
+                "Rekayasa Kehutanan": 3.04,
+                "Teknologi Pascapanen": 3.08
+            }
+        },
+        "dataJurusan": [
+            "Rekayasa Hayati",
+            "Rekayasa Pertanian",
+            "Rekayasa Kehutanan",
+            "Teknologi Pascapanen"
+        ]
+    },
+    "SF": {
+        "dataPeminat": {
+            "1": {
+                "Sains dan Teknologi Farmasi": 300,
+                "Farmasi Klinik dan Komunitas": 250
+            },
+            "2": {
+                "Sains dan Teknologi Farmasi": 250,
+                "Farmasi Klinik dan Komunitas": 300
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Sains dan Teknologi Farmasi": 3.05,
+                "Farmasi Klinik dan Komunitas": 2.99
+            },
+            "2": {
+                "Sains dan Teknologi Farmasi": 2.99,
+                "Farmasi Klinik dan Komunitas": 3.05
+            }
+        },
+        "dataJurusan": [
+            "Sains dan Teknologi Farmasi",
+            "Farmasi Klinik dan Komunitas"
+        ]
+    },
+    "FTSL": {
+        "dataPeminat": {
+            "1": {
+                "Teknik Sipil": 127,
+                "Teknik Lingkungan": 96,
+                "Teknik Kelautan": 113,
+                "Teknik dan Pengelolaan Sumber Daya Air": 104,
+                "Rekayasa Infrastruktur Lingkungan": 110
+            },
+            "2": {
+                "Teknik Sipil": 121,
+                "Teknik Lingkungan": 98,
+                "Teknik Kelautan": 101,
+                "Teknik dan Pengelolaan Sumber Daya Air": 111,
+                "Rekayasa Infrastruktur Lingkungan": 119
+            },
+            "3": {
+                "Teknik Sipil": 92,
+                "Teknik Lingkungan": 108,
+                "Teknik Kelautan": 119,
+                "Teknik dan Pengelolaan Sumber Daya Air": 120,
+                "Rekayasa Infrastruktur Lingkungan": 111
+            },
+            "4": {
+                "Teknik Sipil": 112,
+                "Teknik Lingkungan": 128,
+                "Teknik Kelautan": 110,
+                "Teknik dan Pengelolaan Sumber Daya Air": 99,
+                "Rekayasa Infrastruktur Lingkungan": 101
+            },
+            "5": {
+                "Teknik Sipil": 98,
+                "Teknik Lingkungan": 120,
+                "Teknik Kelautan": 107,
+                "Teknik dan Pengelolaan Sumber Daya Air": 116,
+                "Rekayasa Infrastruktur Lingkungan": 109
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Teknik Sipil": 3.05,
+                "Teknik Lingkungan": 2.99,
+                "Teknik Kelautan": 3.01,
+                "Teknik dan Pengelolaan Sumber Daya Air": 2.97,
+                "Rekayasa Infrastruktur Lingkungan": 2.97
+            },
+            "2": {
+                "Teknik Sipil": 2.98,
+                "Teknik Lingkungan": 3.03,
+                "Teknik Kelautan": 2.91,
+                "Teknik dan Pengelolaan Sumber Daya Air": 3.0,
+                "Rekayasa Infrastruktur Lingkungan": 3.07
+            },
+            "3": {
+                "Teknik Sipil": 2.97,
+                "Teknik Lingkungan": 3.02,
+                "Teknik Kelautan": 2.99,
+                "Teknik dan Pengelolaan Sumber Daya Air": 3.03,
+                "Rekayasa Infrastruktur Lingkungan": 2.99
+            },
+            "4": {
+                "Teknik Sipil": 2.98,
+                "Teknik Lingkungan": 3.01,
+                "Teknik Kelautan": 3.04,
+                "Teknik dan Pengelolaan Sumber Daya Air": 3.0,
+                "Rekayasa Infrastruktur Lingkungan": 2.96
+            },
+            "5": {
+                "Teknik Sipil": 3.01,
+                "Teknik Lingkungan": 2.95,
+                "Teknik Kelautan": 3.05,
+                "Teknik dan Pengelolaan Sumber Daya Air": 3.0,
+                "Rekayasa Infrastruktur Lingkungan": 2.99
+            }
+        },
+        "dataJurusan": [
+            "Teknik Sipil",
+            "Teknik Lingkungan",
+            "Teknik Kelautan",
+            "Teknik dan Pengelolaan Sumber Daya Air",
+            "Rekayasa Infrastruktur Lingkungan"
+        ]
+    },
+    "SAPPK": {
+        "dataPeminat": {
+            "1": {
+                "Arsitektur": 284,
+                "Perencanaan Wilayah dan Kota": 266
+            },
+            "2": {
+                "Arsitektur": 266,
+                "Perencanaan Wilayah dan Kota": 284
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Arsitektur": 2.99,
+                "Perencanaan Wilayah dan Kota": 2.95
+            },
+            "2": {
+                "Arsitektur": 2.95,
+                "Perencanaan Wilayah dan Kota": 2.99
+            }
+        },
+        "dataJurusan": [
+            "Arsitektur",
+            "Perencanaan Wilayah dan Kota"
+        ]
+    },
+    "FSRD": {
+        "dataPeminat": {
+            "1": {
+                "Desain Interior": 123,
+                "Desain Komunikasi Visual": 110,
+                "Desain Produk": 102,
+                "Kriya": 96,
+                "Seni Rupa": 119
+            },
+            "2": {
+                "Desain Interior": 118,
+                "Desain Komunikasi Visual": 112,
+                "Desain Produk": 99,
+                "Kriya": 106,
+                "Seni Rupa": 115
+            },
+            "3": {
+                "Desain Interior": 106,
+                "Desain Komunikasi Visual": 103,
+                "Desain Produk": 122,
+                "Kriya": 106,
+                "Seni Rupa": 113
+            },
+            "4": {
+                "Desain Interior": 89,
+                "Desain Komunikasi Visual": 121,
+                "Desain Produk": 121,
+                "Kriya": 117,
+                "Seni Rupa": 102
+            },
+            "5": {
+                "Desain Interior": 114,
+                "Desain Komunikasi Visual": 104,
+                "Desain Produk": 106,
+                "Kriya": 125,
+                "Seni Rupa": 101
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Desain Interior": 2.96,
+                "Desain Komunikasi Visual": 2.93,
+                "Desain Produk": 3.06,
+                "Kriya": 2.92,
+                "Seni Rupa": 3.07
+            },
+            "2": {
+                "Desain Interior": 3.12,
+                "Desain Komunikasi Visual": 3.03,
+                "Desain Produk": 2.82,
+                "Kriya": 2.95,
+                "Seni Rupa": 2.99
+            },
+            "3": {
+                "Desain Interior": 2.96,
+                "Desain Komunikasi Visual": 3.02,
+                "Desain Produk": 3.05,
+                "Kriya": 3.0,
+                "Seni Rupa": 2.91
+            },
+            "4": {
+                "Desain Interior": 2.96,
+                "Desain Komunikasi Visual": 3.01,
+                "Desain Produk": 3.0,
+                "Kriya": 3.01,
+                "Seni Rupa": 2.96
+            },
+            "5": {
+                "Desain Interior": 2.94,
+                "Desain Komunikasi Visual": 2.95,
+                "Desain Produk": 3.0,
+                "Kriya": 3.05,
+                "Seni Rupa": 3.01
+            }
+        },
+        "dataJurusan": [
+            "Desain Interior",
+            "Desain Komunikasi Visual",
+            "Desain Produk",
+            "Kriya",
+            "Seni Rupa"
+        ]
+    },
+    "SBM": {
+        "dataPeminat": {
+            "1": {
+                "Kewirausahaan": 277,
+                "Manajemen": 273
+            },
+            "2": {
+                "Kewirausahaan": 273,
+                "Manajemen": 277
+            }
+        },
+        "dataIndeksPeminat": {
+            "1": {
+                "Kewirausahaan": 2.95,
+                "Manajemen": 3.04
+            },
+            "2": {
+                "Kewirausahaan": 3.04,
+                "Manajemen": 2.95
+            }
+        },
+        "dataJurusan": [
+            "Kewirausahaan",
+            "Manajemen"
+        ]
+    }
 }

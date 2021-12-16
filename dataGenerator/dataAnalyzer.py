@@ -19,15 +19,15 @@ def data_minatDF(data):
     jurusan_peminat = pd.DataFrame(data=jurusan_peminat_list, columns=["Nama Jurusan", "1", "2", "3", "4", "5", "6"])
     return jurusan_peminat
 
-def data_minat(data):
+def data_minat(data, first_jurusan, last_jurusan, jumlah_jurusan):
 
     jurusan_peminat_list = []
-    for name, values in data.loc[:, "Informatika": "Teknik Biomedis"].iteritems():
+    for name, values in data.loc[:, first_jurusan : last_jurusan].iteritems():
         jurusan_peminat_baris = [name] + list(data[name].value_counts().sort_index())
         jurusan_peminat_list.append(jurusan_peminat_baris)
 
-
-    result = pd.DataFrame(data=jurusan_peminat_list, columns=["Nama Jurusan", "1", "2", "3", "4", "5", "6"]).set_index("Nama Jurusan").to_dict()
+    columns = ["Nama Jurusan"] + [str(i) for i in range(1, jumlah_jurusan+1)]
+    result = pd.DataFrame(data=jurusan_peminat_list, columns=columns).set_index("Nama Jurusan").to_dict()
     return result
 
 #Hasilkan data minat dan indeks akhir
@@ -55,7 +55,7 @@ def data_jurusan_dan_indeksDF(data, peringkat_minat):
     jurusan_dan_indeks = pd.DataFrame(data=jurusan_dan_indeks_list, columns=["Nama Jurusan", f"Indeks Rata-Rata Peminat Nomor {peringkat_minat}"])
     return jurusan_dan_indeks
 
-def data_jurusan_dan_indeks(data, peringkat_minat):
+def data_jurusan_dan_indeks(data, peringkat_minat, first_jurusan, last_jurusan, jumlah_jurusan):
 
     kamus_nilai = {
         "A" : 4.0,
@@ -69,7 +69,7 @@ def data_jurusan_dan_indeks(data, peringkat_minat):
 
     result = {}
 
-    for name, values in data.loc[:, "Informatika": "Teknik Biomedis"].iteritems():
+    for name, values in data.loc[:, first_jurusan: last_jurusan].iteritems():
         indeks_list = data.loc[data[name] == peringkat_minat]["Indeks Akhir"].apply(lambda index: kamus_nilai[index])
         rata_rata_indeks = indeks_list.sum()/len(indeks_list)
         result[name] = rata_rata_indeks
@@ -77,13 +77,13 @@ def data_jurusan_dan_indeks(data, peringkat_minat):
     # print(jurusan_dan_indeks_list)
     return result
 
-def data_jurusan_dan_indeks_total (data):
+def data_jurusan_dan_indeks_total (data, first_jurusan, last_jurusan,jumlah_jurusan):
     result = {}
-    for i in range(1, 7):
-        result[str(i)] = data_jurusan_dan_indeks(data, i)
+    for i in range(1, jumlah_jurusan + 1):
+        result[str(i)] = data_jurusan_dan_indeks(data, i, first_jurusan, last_jurusan)
     return result
 
-def data_jurusan_dan_nilai(data, peringkat_minat):
+def data_jurusan_dan_nilai(data, peringkat_minat, first_jurusan, last_jurusan, jumlah_jurusan):
 
     kamus_nilai = {
         "A" : 4.0,
@@ -97,7 +97,7 @@ def data_jurusan_dan_nilai(data, peringkat_minat):
 
     result = {}
 
-    for name, values in data.loc[:, "Informatika": "Teknik Biomedis"].iteritems():
+    for name, values in data.loc[:, first_jurusan: last_jurusan].iteritems():
         indeks_list = data.loc[data[name] == peringkat_minat]["Nilai Akhir"]
         rata_rata_indeks = round(indeks_list.sum()/len(indeks_list), 2)
         result[name] = rata_rata_indeks
@@ -105,16 +105,16 @@ def data_jurusan_dan_nilai(data, peringkat_minat):
     # print(jurusan_dan_indeks_list)
     return result
 
-def data_jurusan_dan_indeks_total (data):
+def data_jurusan_dan_indeks_total (data, first_jurusan, last_jurusan, jumlah_jurusan):
     result = {}
-    for i in range(1, 7):
-        result[str(i)] = data_jurusan_dan_indeks(data, i)
+    for i in range(1, jumlah_jurusan + 1):
+        result[str(i)] = data_jurusan_dan_indeks(data, i, first_jurusan, last_jurusan)
     return result
 
-def data_jurusan_dan_nilai_total (data):
+def data_jurusan_dan_nilai_total (data, first_jurusan, last_jurusan, jumlah_jurusan):
     result = {}
-    for i in range(1, 7):
-        result[str(i)] = data_jurusan_dan_nilai(data, i)
+    for i in range(1, jumlah_jurusan + 1):
+        result[str(i)] = data_jurusan_dan_nilai(data, i, first_jurusan, last_jurusan, jumlah_jurusan)
     return result
 
 # print(list(data_minat(pd.read_csv("dataGenerator/rawData/STEI.csv"))["Nama Jurusan"]))

@@ -56,7 +56,7 @@ export default function JurusanSelection ({facultyShown, onJurusanClick}){
             <Main>
                 <OptionButton onClick={() => onJurusanClick("Overview")} isActive={jurusanShown === "Overview" ? true : false}>Overview</OptionButton>
                 <JurusanContainer>
-                    {facultiesData["STEI"]["dataJurusan"].map(jurusanButtonCreator)}
+                    {facultiesData[facultyShown]["dataJurusan"].map(jurusanButtonCreator)}
                 </JurusanContainer>
             </Main>
         )
