@@ -80,7 +80,15 @@ export default function DataVisualization ({type, data, title}){
             console.log("Bruh")
             setSortMethod("rangking menurun")
         }
-    }, [type])
+    }, [type]);
+
+    let sortMethodOptions = [];
+
+    if (type === "indeksPeminat"){
+        sortMethodOptions = ["Menaik", "Menurun", "Alfabetikal"];
+    } else if (type === "indeksPeminatJurusan"){
+        sortMethodOptions = ["Menaik", "Menurun", "Rangking menaik", "Rangking menurun"];
+    }
 
     const colors = ["#EF4444", "#F97316", "#F59E0B", "#EAB308", "#84CC16", "#22C55E", "#10B981", "#14B8A6", "#06B6D4", ""];
 
@@ -144,77 +152,70 @@ export default function DataVisualization ({type, data, title}){
         }
     }
 
+    function sortMethodChoiceMaker (){
+        return (
+            <ChartChoiceContainer>
+               {sortMethodOptions.map((sortMethodOption) => {
+                   return (
+                       <Choice chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
+                   )
+                })} 
+            </ChartChoiceContainer>
+        )
+    }
+
+    function centerChartJumlahPeminat () {
+        if (!isPercent){
+            return (
+                <PieTotalOuterContainer>
+                    <PieTotalContainer>
+                        <p>dari</p>
+                        <p>{totalCounter(data)}</p>
+                        <p>partisipan</p>
+                    </PieTotalContainer>
+                </PieTotalOuterContainer>
+            )
+        } else {
+            return (<></>)
+        }
+    }
+
+    function choiceChartJumlahPeminat(){
+        return (
+            <ChartChoiceContainer>
+                <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
+                <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
+            </ChartChoiceContainer>
+        )
+    }
+
+    function changeColorOnHover (){
+        if (type === "indeksPeminat" || type === "jumlahPeminat"){
+            return true;
+        } else if (type === "indeksPeminatJurusan" || type === "jumlahPeminatJurusan") {
+            return false;
+        }
+    }
+
     function typeOfChart () {
-        if (type === "indeksPeminat") {
+        if (type === "indeksPeminat" || type === "indeksPeminatJurusan") {
             return (
                 <>
-                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
-                    <ChartChoiceContainer>
-                        <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
-                        <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
-                        <Choice chosen={sortMethod === "alfabetikal" ? true : false} onClick={()=> setSortMethod("alfabetikal")}>Alfabetikal</Choice>
-                    </ChartChoiceContainer>
+                <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={changeColorOnHover()}/>
+                {sortMethodChoiceMaker()}
                 </>
                 
             )
-        } else if (type === "jumlahPeminat") {
+        } else if (type === "jumlahPeminatJurusan" || type === "jumlahPeminat" ) {
             return (
                 <>
                 <PieContainer>
-                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={true}/>
-                    {isPercent ? null : 
-                        <PieTotalOuterContainer>
-                            <PieTotalContainer>
-                                <p>dari</p>
-                                <p>{totalCounter(data)}</p>
-                                <p>partisipan</p>
-                            </PieTotalContainer>
-                        </PieTotalOuterContainer>
-                    }
+                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={changeColorOnHover()}/>
+                    {centerChartJumlahPeminat()}
                 </PieContainer>
-                <ChartChoiceContainer>
-                    <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
-                    <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
-                </ChartChoiceContainer>
+                {choiceChartJumlahPeminat()}
                 </>
 
-            )
-        } else if (type === "jumlahPeminatJurusan") {
-            // setSortMethod("ranking menurun");
-            return (
-                <>
-                <PieContainer>
-                    <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={false}/>
-                    {isPercent ? null : 
-                        <PieTotalOuterContainer>
-                            <PieTotalContainer>
-                                <p>dari</p>
-                                <p>{totalCounter(data)}</p>
-                                <p>partisipan</p>
-                            </PieTotalContainer>
-                        </PieTotalOuterContainer>
-                    }
-                </PieContainer>
-                <ChartChoiceContainer>
-                    <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
-                    <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
-                </ChartChoiceContainer>
-                </>
-
-            )
-        } else if (type === "indeksPeminatJurusan") {
-            // setSortMethod("ranking menurun");
-            return (
-                <>
-                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors} hoveredColor={(color) => shadeColor(color, 20)} changeColorOnHover={false}/>
-                    <ChartChoiceContainer>
-                        <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
-                        <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
-                        <Choice chosen={sortMethod === "rangking menaik" ? true : false} onClick={()=> setSortMethod("rangking menaik")}>Rangking Menaik</Choice>
-                        <Choice chosen={sortMethod === "rangking menurun" ? true : false} onClick={()=> setSortMethod("rangking menurun")}>Rangking Menurun</Choice>
-                    </ChartChoiceContainer>
-                </>
-                
             )
         }
     }
