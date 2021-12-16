@@ -61,7 +61,7 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hovere
                         color = (index === activeIndex) ? hoveredColor(color) : color;
                     }
                     return(
-                        <Cell fill={color} />
+                        <Cell key={`${color} ${index}`} fill={color} />
                     )
                 })}
             </Bar>

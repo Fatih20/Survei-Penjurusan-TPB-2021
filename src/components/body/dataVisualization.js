@@ -155,7 +155,7 @@ export default function DataVisualization ({type, data, title}){
             <ChartChoiceContainer>
                {sortMethodOptions.map((sortMethodOption) => {
                    return (
-                        <Choice chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
+                        <Choice key={`${sortMethodOption}${sortMethodOption.toLowerCase()}`} chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
                    )
                 })} 
             </ChartChoiceContainer>

@@ -116,7 +116,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
                         color = (index === activeIndex) ? hoveredColor(color) : color;
                     }
                     return(
-                        <Cell fill={color} />
+                        <Cell key={`${color} ${index}`} fill={color} />
                     )
                 })}
             </Pie>

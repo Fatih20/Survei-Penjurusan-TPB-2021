@@ -58,8 +58,6 @@ export default function Content({facultyShown}){
             )
         }
     } else {
-        console.log("Not showing anything");
-        console.log(jurusanShown);
         return (
             <>
             </>
