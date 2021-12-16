@@ -69,11 +69,20 @@ const PieContainer = styled.div`
 
 export default function DataVisualization ({type, data, title}){
     const [isPercent, setIsPercent] = useState(true)
+    const [sortMethod, setSortMethod] = useState("menaik")
 
     const colors = ["#EF4444", "#F97316", "#F59E0B", "#EAB308", "#84CC16", "#22C55E", "#10B981", "#14B8A6", "#06B6D4", ""];
 
     function colorPicker (index, arrayOfColor){
         return arrayOfColor[index % arrayOfColor.length]
+    }
+
+    function sortedData (){
+        if (sortMethod === "menaik"){
+            return data.sort((a, b) => a["besar"] - b["besar"])
+        } else if (sortMethod === "menurun"){
+            return data.sort((a, b) => b["besar"] - a["besar"])
+        }
     }
 
     function handlePercentChoiceClick(choosePercent) {
@@ -83,9 +92,9 @@ export default function DataVisualization ({type, data, title}){
     }
 
     function typeOfChart () {
-        if (type === "bar") {
-            return (<NilaiBarChart data={data} colorPicker={colorPicker} arrayOfColors={colors}/>)
-        } else {
+        if (type === "indeksPeminat") {
+            return (<NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors}/>)
+        } else if (type === "jumlahPeminat") {
             return (
             <>
                 <PieContainer>
