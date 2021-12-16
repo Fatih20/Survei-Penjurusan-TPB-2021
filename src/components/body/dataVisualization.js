@@ -15,13 +15,15 @@ const Main = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
+
+    /* border: solid 1px white;  */
 `;
 
 const ChartTitle = styled.h2`
     text-align: center;
 `;
 
-const PercentChoiceContainer = styled.div`
+const ChartChoiceContainer = styled.div`
     align-items: center;
     display: flex;
 `;
@@ -69,7 +71,7 @@ const PieContainer = styled.div`
 
 export default function DataVisualization ({type, data, title}){
     const [isPercent, setIsPercent] = useState(true)
-    const [sortMethod, setSortMethod] = useState("menaik")
+    const [sortMethod, setSortMethod] = useState("alfabetikal")
 
     const colors = ["#EF4444", "#F97316", "#F59E0B", "#EAB308", "#84CC16", "#22C55E", "#10B981", "#14B8A6", "#06B6D4", ""];
 
@@ -82,6 +84,26 @@ export default function DataVisualization ({type, data, title}){
             return data.sort((a, b) => a["besar"] - b["besar"])
         } else if (sortMethod === "menurun"){
             return data.sort((a, b) => b["besar"] - a["besar"])
+        } else if (sortMethod === "alfabetikal"){
+            return data.sort((a, b) => {
+                const nameA = a["nama"].toUpperCase();
+                const nameB = b["nama"].toUpperCase();
+                if (nameA > nameB){
+                    return 1;
+                } else if (nameA < nameB){
+                    return -1;
+                } else {
+                    return 0;
+                }
+            })
+        } else if (sortMethod === "ranking menaik"){
+            return data.sort((a, b) => {
+                return parseInt(a["nama"])-parseInt(b["nama"])
+            })
+        } else if (sortMethod === "ranking menurun"){
+            return data.sort((a, b) => {
+                return parseInt(b["nama"])-parseInt(a["nama"])
+            })
         }
     }
 
@@ -93,10 +115,20 @@ export default function DataVisualization ({type, data, title}){
 
     function typeOfChart () {
         if (type === "indeksPeminat") {
-            return (<NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors}/>)
+            return (
+                <Main>
+                    <NilaiBarChart data={sortedData()} colorPicker={colorPicker} arrayOfColors={colors}/>
+                    <ChartChoiceContainer>
+                        <Choice chosen={sortMethod === "menaik" ? true : false} onClick={()=> setSortMethod("menaik")}>Menaik</Choice>
+                        <Choice chosen={sortMethod === "menurun" ? true : false} onClick={()=> setSortMethod("menurun")}>Menurun</Choice>
+                        <Choice chosen={sortMethod === "alfabetikal" ? true : false} onClick={()=> setSortMethod("alfabetikal")}>Alfabetikal</Choice>
+                    </ChartChoiceContainer>
+                </Main>
+                
+            )
         } else if (type === "jumlahPeminat") {
             return (
-            <>
+            <Main>
                 <PieContainer>
                     <PeminatPieChart data={percentMaker(data)} colorPicker={colorPicker} arrayOfColors={colors} isPercent={isPercent} innerRadius={125}/>
                     {isPercent ? null : 
@@ -109,11 +141,11 @@ export default function DataVisualization ({type, data, title}){
                         </PieTotalOuterContainer>
                     }
                 </PieContainer>
-                <PercentChoiceContainer>
+                <ChartChoiceContainer>
                     <Choice chosen={isPercent} onClick={() => handlePercentChoiceClick(true)}>Persen</Choice>
                     <Choice chosen={!isPercent} onClick={() => handlePercentChoiceClick(false)}>Absolut</Choice>
-                </PercentChoiceContainer>
-            </>
+                </ChartChoiceContainer>
+            </Main>
 
             )
         }

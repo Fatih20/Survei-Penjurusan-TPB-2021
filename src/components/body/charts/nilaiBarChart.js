@@ -20,7 +20,7 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
             width={720} 
             height={500} 
             layout="vertical"
-            margin={{bottom : 20}}
+            margin={{bottom : 20, left: 0}}
             barCategoryGap="20%"
             >
             <Label value="Nilai Akhir" position={"top"} fill="white"/>
@@ -28,8 +28,7 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker}){
             <XAxis label={false} tick={true} type="number" stroke="white" tickCount={jumlahTickNilai()} domain={[lowerNilai, upperNilai]}>
                 <Label value="Nilai Akhir" position={"bottom"} fill="white"/>
             </XAxis>
-            <YAxis strokeOpacity={1} type="category" dataKey="nama" tick={false} stroke="white">
-            </YAxis>
+            <YAxis strokeOpacity={1} type="category" dataKey="nama" tick={false} stroke="white" label={false}/>
             <Bar dataKey="besar" fill="#fafafa">
                 <LabelList dataKey="nama" position="insideLeft" fill="white"/>
                 <LabelList dataKey="besar" position="right" fill="white"/>
