@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled, {css} from "styled-components";
-import * as dataProcessor from "../../dataProcessor/dataProcessor.js"
 
 // Import Component
-import DataVisualization from "./dataVisualization.js";
-import BarChartSpecialized from "./charts/nilaiBarChart.js";
 import { VanillaButton } from "../../GlobalComponent";
 
 // Import Data

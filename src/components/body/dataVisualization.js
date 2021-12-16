@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { PieChart, Pie, Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell, Label, LabelList, Sector } from "recharts";
-
-// Import Data
-import { useFacultiesData } from "../../context/FacultyDataContext";
 
 // Import Component
 import NilaiBarChart from "./charts/nilaiBarChart";
@@ -109,9 +105,9 @@ export default function DataVisualization ({type, data, title}){
         G = (G<255)?G:255;  
         B = (B<255)?B:255;  
     
-        var RR = ((R.toString(16).length==1)?"0"+R.toString(16):R.toString(16));
-        var GG = ((G.toString(16).length==1)?"0"+G.toString(16):G.toString(16));
-        var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
+        var RR = ((R.toString(16).length===1)?"0"+R.toString(16):R.toString(16));
+        var GG = ((G.toString(16).length===1)?"0"+G.toString(16):G.toString(16));
+        var BB = ((B.toString(16).length===1)?"0"+B.toString(16):B.toString(16));
     
         return "#"+RR+GG+BB;
     }

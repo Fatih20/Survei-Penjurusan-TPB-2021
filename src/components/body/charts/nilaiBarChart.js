@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import {Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar, Text, Cell, Label, LabelList } from "recharts";
+import React, { useState } from "react";
+import {BarChart, CartesianGrid, XAxis, YAxis, Bar, Cell, Label, LabelList } from "recharts";
 
 
 // Import Context
@@ -20,8 +19,6 @@ export default function NilaiBarChart ({data, arrayOfColors, colorPicker, hovere
     function jumlahTickNilai () { 
         return (1+(upperNilai-lowerNilai)/0.25)
     }
-
-    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"];
 
     function handleClick({nama}){
         if (jurusanShown === "Overview"){

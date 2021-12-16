@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-
-import { PieChart, Pie, Tooltip, BarChart, CartesianGrid, XAxis, YAxis, Legend, Bar } from "recharts";
 
 // Import Data
 import { useFacultiesData } from "../../context/FacultyDataContext";
@@ -12,8 +10,6 @@ import { dataPeminatProcessed, dataIndeksPeminatProcessed, dataPeminatJurusanPro
 import { useJurusanShownContext } from "./body";
 
 import DataVisualization from "./dataVisualization";
-import BarChartSpecialized from "./charts/nilaiBarChart";
-import PieChartSpecialized from "./charts/peminatPieChart";
 
 const Main = styled.div`
     align-items: center;
@@ -28,9 +24,6 @@ const Main = styled.div`
     }
     
     /* border: 1px solid white; */
-`;
-
-const Chart = styled.div`
 `;
 
 export default function Content({facultyShown}){

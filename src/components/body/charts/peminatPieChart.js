@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { PieChart, Pie, Tooltip, Legend, Bar, Text, Cell, Label, LabelList, Sector, ResponsiveContainer } from "recharts";
+import React, { useState, useRef } from "react";
+import { PieChart, Pie, Cell, LabelList } from "recharts";
 
 // Import DataProcessor
-import { percentMaker, totalCounter } from "../../../dataProcessor/dataProcessor";
+import {totalCounter } from "../../../dataProcessor/dataProcessor";
 
 // Import Context
 import { useJurusanShownContext, useSetJurusanShownContext } from "../body";
-
-const Main = styled.div`
-    position: relative;
-`;
 
 export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPercent, innerRadius, hoveredColor, changeColorOnHover}){
     const[activeIndex, setActiveIndex] = useState(null);
@@ -21,11 +16,9 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
     const dataMaximum = Math.max.apply(null, data.map((entry) => entry.besar))
     const dataMinimum = Math.min.apply(null, data.map((entry) => entry.besar))
 
-    const colors = ["#c6262e", "#f37329", "#f9c440", "#68b723", "#28bca3", "#3689e6", "#a56de2", "#de3e80", "#715344"]
-
     function customizedPieLabel (props){
         // console.log(props);
-        const {cx, cy, index, name, fill, value, viewBox: {endAngle, startAngle, outerRadius}} = props;
+        const {cx, cy, fill, value, viewBox: {endAngle, startAngle, outerRadius}} = props;
         const midAngle = (endAngle + startAngle)/2;
         const midRadius = (outerRadius+innerRadius)/2
         const x = cx + midRadius*Math.cos(-Math.PI*midAngle/180)
@@ -42,7 +35,7 @@ export default function PeminatPieChart ({data, arrayOfColors, colorPicker, isPe
 
     function customizedPieNameLabel (props){
         // console.log(props);
-        const {cx, cy, index, name, fill, value, viewBox: {endAngle, startAngle, innerRadius, outerRadius}} = props;
+        const {cx, cy, index, fill, value, viewBox: {endAngle, startAngle, outerRadius}} = props;
         const midAngle = (startAngle+endAngle)/2
         const halfASegment = 360/(2*data.length)
         const newStartAngle = midAngle-halfASegment
