@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import styled from "styled-components";
 
 // Import Data
@@ -29,6 +29,24 @@ const Main = styled.div`
 export default function Content({facultyShown}){
     const facultiesData = useFacultiesData();
     const jurusanShown = useJurusanShownContext();
+    const sortMethodOfJurusan = useRef(
+        {
+            "Overview Peminat Pertama" : "menurun",
+            "Overview Peminat Terakhir" : "menurun",
+        }
+    );
+
+    useEffect(() => {
+        Object.keys(facultiesData).forEach((jurusan) => {
+            sortMethodOfJurusan.current[jurusan] = "rangking menurun"
+        })
+    }, [])
+
+    function saveSortMethod (jurusan, sortMethod){
+        sortMethodOfJurusan.current[jurusan] = sortMethod;
+    }
+
+
 
     if (facultyShown !== "None" && jurusanShown !== "None"){
         if (jurusanShown === "Overview"){
@@ -38,10 +56,10 @@ export default function Content({facultyShown}){
             const dataPeminatTerakhir = dataPeminatProcessed(facultiesData[facultyShown]["dataPeminat"], facultiesData[facultyShown]["dataJurusan"].length);
             return (
                 <Main>
-                    <DataVisualization title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminat" data={dataPeminatPertama} />
-                    <DataVisualization title="Rerata Nilai Akhir Peminat Pertama Tiap Jurusan" type="indeksPeminat" data={dataIndeksPeminatPertama}/>
-                    <DataVisualization title="Jumlah Peminat Pilihan Terakhir Tiap Fakultas" type="jumlahPeminat" data={dataPeminatTerakhir} />
-                    <DataVisualization title="Rerata Nilai Akhir Peminat Terakhir Tiap Jurusan" type="indeksPeminat" data={dataIndeksPeminatTerakhir}/>
+                    <DataVisualization key={`${jurusanShown} jumlahPeminat Pertama`} title="Jumlah Peminat Pilihan Pertama Tiap Fakultas" type="jumlahPeminat" data={dataPeminatPertama} />
+                    <DataVisualization key={`${jurusanShown} indeksPeminat Pertama`} title="Rerata Nilai Akhir Peminat Pertama Tiap Jurusan" type="indeksPeminat" data={dataIndeksPeminatPertama} saveSortMethod={(sortMethod) => saveSortMethod("Overview Peminat Pertama", sortMethod)} initialSortMethod={sortMethodOfJurusan.current["Overview Peminat Pertama"]}/>
+                    <DataVisualization key={`${jurusanShown} jumlahPeminat Terakhir`} title="Jumlah Peminat Pilihan Terakhir Tiap Fakultas" type="jumlahPeminat" data={dataPeminatTerakhir} />
+                    <DataVisualization key={`${jurusanShown} indeksPeminat Terakhir`} title="Rerata Nilai Akhir Peminat Terakhir Tiap Jurusan" type="indeksPeminat" data={dataIndeksPeminatTerakhir} saveSortMethod={(sortMethod) => saveSortMethod("Overview Peminat Terakhir", sortMethod)} initialSortMethod={sortMethodOfJurusan.current["Overview Peminat Terakhir"]}/>
                 </Main>
             )
         } else {
@@ -49,8 +67,8 @@ export default function Content({facultyShown}){
             const dataPeminatJurusan = dataPeminatJurusanProcessed(facultiesData[facultyShown]["dataPeminat"], jurusanShown);
             return (
                 <Main>
-                    <DataVisualization title={`Jumlah Peminat ${jurusanShown} Berdasar Peringkat`} type="jumlahPeminatJurusan" data={dataPeminatJurusan} />
-                    <DataVisualization title={`Nilai Akhir Peminat ${jurusanShown} Berdasar Peringkat`} type="indeksPeminatJurusan" data={dataIndeksPeminatJurusan}/>
+                    <DataVisualization key={`${jurusanShown} jumlahPeminatJurusan`} title={`Jumlah Peminat ${jurusanShown} Berdasar Peringkat`} type="jumlahPeminatJurusan" data={dataPeminatJurusan} />
+                    <DataVisualization key={`${jurusanShown} indeksPeminatJurusan`} title={`Nilai Akhir Peminat ${jurusanShown} Berdasar Peringkat`} type="indeksPeminatJurusan" data={dataIndeksPeminatJurusan} saveSortMethod={(sortMethod) => saveSortMethod(jurusanShown, sortMethod)} initialSortMethod={sortMethodOfJurusan.current[jurusanShown]}/>
                 </Main>
             )
         }

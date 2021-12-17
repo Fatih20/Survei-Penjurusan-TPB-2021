@@ -65,15 +65,24 @@ const PieContainer = styled.div`
     position: relative;
 `;
 
-export default function DataVisualization ({type, data, title}){
+export default function DataVisualization ({type, data, title, saveSortMethod, initialSortMethod}){
     const [isPercent, setIsPercent] = useState(true)
     const [sortMethod, setSortMethod] = useState("alfabetikal");
 
+    function changeSortMethod(newSortMethod){
+        saveSortMethod(newSortMethod);
+        setSortMethod(newSortMethod);
+    }
+
     useEffect(() => {
-        if (type === "indeksPeminat"){
-            setSortMethod("alfabetikal")
-        } else if (type === "indeksPeminatJurusan"){
-            setSortMethod("rangking menurun")
+        if (initialSortMethod !== null && initialSortMethod !== undefined){
+            changeSortMethod(initialSortMethod);
+        } else {
+            if (type === "indeksPeminat"){
+                changeSortMethod("alfabetikal")
+            } else if (type === "indeksPeminatJurusan"){
+                changeSortMethod("rangking menurun")
+            }
         }
     }, [type]);
 
@@ -151,7 +160,7 @@ export default function DataVisualization ({type, data, title}){
             <ChartChoiceContainer>
                {sortMethodOptions.map((sortMethodOption) => {
                    return (
-                        <Choice key={`${sortMethodOption}${sortMethodOption.toLowerCase()}`} chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> setSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
+                        <Choice key={`${sortMethodOption}${sortMethodOption.toLowerCase()}`} chosen={sortMethod === sortMethodOption.toLowerCase() ? true : false} onClick={()=> changeSortMethod(sortMethodOption.toLowerCase())}>{sortMethodOption}</Choice>
                    )
                 })} 
             </ChartChoiceContainer>
