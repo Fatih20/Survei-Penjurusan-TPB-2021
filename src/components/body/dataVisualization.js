@@ -6,6 +6,7 @@ import NilaiBarChart from "./charts/nilaiBarChart";
 import PeminatPieChart from "./charts/peminatPieChart";
 import { percentMaker, totalCounter } from "../../dataProcessor/dataProcessor";
 import { VanillaButton } from "../../GlobalComponent";
+import { findRenderedComponentWithType } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 const Main = styled.div`
     align-items: center;
@@ -65,7 +66,7 @@ const PieContainer = styled.div`
     position: relative;
 `;
 
-export default function DataVisualization ({type, data, title, saveSortMethod, initialSortMethod}){
+export default function DataVisualization ({type, data, title, saveSortMethod, initialSortMethod, initialIsPercent, saveIsPercent}){
     const [isPercent, setIsPercent] = useState(true)
     const [sortMethod, setSortMethod] = useState("alfabetikal");
 
@@ -85,6 +86,12 @@ export default function DataVisualization ({type, data, title, saveSortMethod, i
             }
         }
     }, [type]);
+
+    useEffect(() => {
+        if (initialIsPercent !== null && initialIsPercent !== undefined){
+            setIsPercent(initialIsPercent);
+        }
+    }, [type])
 
     let sortMethodOptions = [];
 
@@ -151,7 +158,9 @@ export default function DataVisualization ({type, data, title, saveSortMethod, i
 
     function handlePercentChoiceClick(choosePercent) {
         if (isPercent !== choosePercent){
-            setIsPercent((prevIsPercent) => !prevIsPercent)
+            const newIsPercent = !isPercent;
+            saveIsPercent(newIsPercent);
+            setIsPercent(newIsPercent);
         }
     }
 
