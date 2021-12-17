@@ -6,7 +6,8 @@ import NilaiBarChart from "./charts/nilaiBarChart";
 import PeminatPieChart from "./charts/peminatPieChart";
 import { percentMaker, totalCounter } from "../../dataProcessor/dataProcessor";
 import { VanillaButton } from "../../GlobalComponent";
-import { findRenderedComponentWithType } from "react-dom/cjs/react-dom-test-utils.production.min";
+
+import { useJurusanShownContext, useFacultyShownContext } from "./body";
 
 const Main = styled.div`
     align-items: center;
@@ -70,6 +71,9 @@ export default function DataVisualization ({type, data, title, saveSortMethod, i
     const [isPercent, setIsPercent] = useState(true)
     const [sortMethod, setSortMethod] = useState("alfabetikal");
 
+    const jurusanShown = useJurusanShownContext();
+    const facultyShown = useFacultyShownContext();
+
     function changeSortMethod(newSortMethod){
         saveSortMethod(newSortMethod);
         setSortMethod(newSortMethod);
@@ -85,13 +89,13 @@ export default function DataVisualization ({type, data, title, saveSortMethod, i
                 changeSortMethod("rangking menurun")
             }
         }
-    }, [type]);
+    }, [jurusanShown, facultyShown, type]);
 
     useEffect(() => {
         if (initialIsPercent !== null && initialIsPercent !== undefined){
             setIsPercent(initialIsPercent);
         }
-    }, [type])
+    }, [jurusanShown, facultyShown, type])
 
     let sortMethodOptions = [];
 

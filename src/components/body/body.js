@@ -17,6 +17,7 @@ const Main = styled.div`
 
 const JurusanShownContext = React.createContext();
 const SetJurusanShownContext = React.createContext();
+const FacultyShownContext = React.createContext();
 
 export function useJurusanShownContext (){
     return useContext(JurusanShownContext);
@@ -24,6 +25,10 @@ export function useJurusanShownContext (){
 
 export function useSetJurusanShownContext (){
     return useContext(SetJurusanShownContext);
+}
+
+export function useFacultyShownContext(){
+    return useContext(FacultyShownContext);
 }
 
 export default function Body (){
@@ -51,9 +56,11 @@ export default function Body (){
         <Main>
             <JurusanShownContext.Provider value={jurusanShown}>
                 <SetJurusanShownContext.Provider value={setJurusanShown}>
-                    <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
-                    <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick}/>
-                    <Content facultyShown={facultyShown}/>
+                    <FacultyShownContext.Provider value={facultyShown}>
+                        <FacultySelection facultyShown={facultyShown} onFacultyClick={facultyClick}/>
+                        <JurusanSelection facultyShown={facultyShown} onJurusanClick={jurusanClick}/>
+                        <Content/>
+                    </FacultyShownContext.Provider>
                 </SetJurusanShownContext.Provider>
             </JurusanShownContext.Provider>
         </Main>
